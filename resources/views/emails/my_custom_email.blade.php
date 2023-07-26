@@ -6,7 +6,7 @@
 <body>
     <div style="text-align: center;">
         <a href="{{$url}}">
-            <img src="https://unsplash.com/photos/NYrVisodQ2M" alt="Banner Image" style="max-width: 100%;">
+            <img src="https://ticket.muallem.id/banner_mail.jpg" alt="Banner Image" style="max-width: 100%;">
         </a>
     </div>
     <p>Thank you for using our service!</p>
