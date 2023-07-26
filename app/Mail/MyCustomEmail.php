@@ -5,18 +5,25 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MyCustomEmail extends Mailable
+class MyCustomEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     /**
-     * Get the message content definition.
+     * Create a new message instance.
      */
+    public function __construct()
+    {
+        //
+    }
 
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
     public function build()
     {
         return $this->view('emails.my_custom_email')
@@ -25,5 +32,4 @@ class MyCustomEmail extends Mailable
                 'url' => 'https://ticket.muallem.id',
             ]);
     }
-
 }
