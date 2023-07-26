@@ -62,7 +62,7 @@ class TicketController extends Controller
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
-        return view('ticket.checkout', compact('snaptoken', 'ticket'));
+        return view('ticket.checkout', compact('snapToken', 'ticket'));
     }
 
     /**
