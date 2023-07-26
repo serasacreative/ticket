@@ -50,39 +50,7 @@
                                     </div>
                                 </div>
 
-                                {{-- Owner Id --}}
-                                <div class="row align-items-end my-2">
-                                    <div class="col-md" >
-                                        <label class="form-label">Owner</label>
-                                        <select class="form-select" placeholder="Owner" wire:model.lazy="selected_owner_id" required>
-                                            <option value="">Choose Owner</option>
-                                            @foreach ($client_ids as $client_id)
-                                                <option value="{{$client_id['id']}}">{{$client_id['name']}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                {{-- Pic Id --}}
-                                <div class="row align-items-end my-2">
-                                    <div class="col-md" >
-                                        <label class="form-label">Client</label>
-                                        <select class="form-select" placeholder="Client" wire:model.lazy="selected_pic_id" required>
-                                            <option value="">Choose Client</option>
-                                            @foreach ($client_ids as $client_id)
-                                                <option value="{{$client_id['id']}}">{{$client_id['name']}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
                                 
-                                {{-- Date --}}
-                                <label class="form-label">Date</label>
-                                <div class="input-daterange input-group" data-provide="datepicker" wire:ignore>
-                                    <input type="text" class="input-sm form-control" id="start_date" placeholder="Start" required/>
-                                    <span class="input-group-addon text-center" style="width: 40px;">to</span>
-                                    <input type="text" class="input-sm form-control" id="end_date" placeholder="End" required/>
-                                </div>
 
                             </div>
                             <div class="modal-footer mt-3">
