@@ -5,7 +5,7 @@
 </head>
 <body>
     <div style="text-align: center;">
-        <a href="/">
+        <a href="{{$url}}">
             <img src="https://unsplash.com/photos/NYrVisodQ2M" alt="Banner Image" style="max-width: 100%;">
         </a>
     </div>

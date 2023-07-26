@@ -80,7 +80,6 @@ class TicketController extends Controller
                 $ticket->status = 'paid';
                 $ticket->save();
 
-
                 $recipientEmail = $ticket->email;
                 Mail::to($recipientEmail)->send(new MyCustomEmail());
             }
