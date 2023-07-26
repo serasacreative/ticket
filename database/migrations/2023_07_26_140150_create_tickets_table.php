@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('email');
-            $table->string('bar_code');
+            $table->string('bar_code')->nullable();
             $table->string('status');
             $table->integer('qty');
             $table->bigInteger('price');
