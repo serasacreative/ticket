@@ -6,6 +6,10 @@ use App\Models\Ticket;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+use App\Mail\MyCustomEmail;
+use Illuminate\Support\Facades\Mail;
+
+
 class TicketController extends Controller
 {
     /**
@@ -75,6 +79,10 @@ class TicketController extends Controller
                 $ticket = Ticket::find($request->order_id);
                 $ticket->status = 'paid';
                 $ticket->save();
+
+
+                $recipientEmail = $ticket->email;
+                Mail::to($recipientEmail)->send(new MyCustomEmail());
             }
         }
     }
