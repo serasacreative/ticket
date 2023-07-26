@@ -40,7 +40,7 @@ class TicketController extends Controller
         //SAMPLE REQUEST START HERE
 
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = config('midtranc.server_key');
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
