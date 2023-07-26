@@ -25,32 +25,30 @@
                     <div class="card-body">
                         <h1> Ticket </h1>
 
-                        <form wire:submit.prevent='store'>
+                        <form method="POST" action="{{route('ticket.checkout')}}">
+                            @csrf
                             <div class="modal-body">
-                                {{-- Title --}}
+                                {{-- Email --}}
                                 <div class="row align-items-end my-2 ">
                                     <div class="col-md">
-                                        <label>Title :</label>
-                                        <input class="form-control" type="text" wire:model.lazy="title" placeholder="Title" required>
-
-                                        @error('title')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <label>Email :</label>
+                                        <input class="form-control" type="email" placeholder="Email" required name="email">
                                     </div>
                                 </div>
-                                {{-- Description --}}
+                                {{-- QTY --}}
                                 <div class="row align-items-end my-2 ">
                                     <div class="col-md">
-                                        <label>Description :</label>
-                                        <textarea class="form-control" rows="5" wire:model.lazy="description" placeholder="Description" required></textarea>
-                                        
-                                        @error('description')
-                                        <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <label>Jumlah tiket :</label>
+                                        <input class="form-control" type="number" placeholder="Jumlah Tiker" required name="qty">
                                     </div>
                                 </div>
-
-                                
+                                {{-- QTY --}}
+                                <div class="row align-items-end my-2 ">
+                                    <div class="col-md">
+                                        <label>Harga satuan :</label>
+                                        <input class="form-control" type="number" placeholder="Harga Satuan" required name="price">
+                                    </div>
+                                </div>
 
                             </div>
                             <div class="modal-footer mt-3">

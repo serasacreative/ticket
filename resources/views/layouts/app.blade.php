@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     @livewireStyles
 
+    @yield('css')
     @stack('css')
 </head>
 
