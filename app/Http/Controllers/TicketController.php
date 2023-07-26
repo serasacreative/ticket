@@ -20,7 +20,7 @@ class TicketController extends Controller
     {
         $ticket = new Ticket();
         $ticket->email = $request->email;
-        $ticket->status = 'unpaid';
+        $ticket->status = 'pending';
         $ticket->qty = $request->qty;
         $ticket->price = $request->price;
         $ticket->total_price = $request->qty * $request->price;
@@ -63,6 +63,20 @@ class TicketController extends Controller
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         return view('ticket.checkout', compact('snapToken', 'ticket'));
+    }
+
+    public function callback(Request $request)
+    {
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash('sha512', $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+
+        if($hashed == $request->signature_key){
+            if($request->transaction_status == 'capture'){
+                $ticket = Ticket::find($request->order_id);
+                $ticket->status = 'paid';
+                $ticket->save();
+            }
+        }
     }
 
     /**
