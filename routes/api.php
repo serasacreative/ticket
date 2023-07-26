@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/midtrans-callback', [TicketController::class, 'callback'])->name('ticket.callback');
+Route::post('/midtrans-callback', [TicketController::class, 'callback']);
