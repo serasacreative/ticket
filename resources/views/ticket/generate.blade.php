@@ -19,7 +19,7 @@
 <script type="text/javascript" src="{{ asset('assets/plugin/barcodegen/JsBarcode.all.min.js') }}"></script>
 <script>
     $(function() {
-        $("#barcode").JsBarcode("{{ $ticket->bar_code }}", {
+        $("#barcode").JsBarcode("0006-20230724-6", {
             width: 1.5,
             height: 65,
             fontSize: 26,
