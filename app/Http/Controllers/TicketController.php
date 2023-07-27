@@ -29,13 +29,22 @@ class TicketController extends Controller
         $tickets = Ticket::where('category', 'festival')
         ->where('status', 'paid')
         ->sum('qty');
-        return $tickets;
+        $max_tickets = 0;
+        if($tickets >= 15){
+            return view('ticket.festival_soldout');
+        }
         return view('ticket.festival', compact('tickets'));
     }
 
     public function ticket_vip()
     {
-
+        $tickets = Ticket::where('category', 'festival')
+        ->where('status', 'paid')
+        ->sum('qty');
+        $max_tickets = 15;
+        if($tickets >= $max_tickets){
+            return view('ticket.vip_soldout');
+        }
         return view('ticket.vip');
     }
 
