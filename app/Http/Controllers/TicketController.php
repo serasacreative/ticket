@@ -205,7 +205,7 @@ class TicketController extends Controller
             $ticket->save();
             return $ticket;
         }   
-        return $request->all();
+        return response()->json(['valid' => false]);;
     }
     /**
      * Show the form for creating a new resource.
