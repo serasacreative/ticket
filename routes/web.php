@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TicketController::class, 'index'])->name('ticket.index');
-Route::post('/checkout', [TicketController::class, 'checkout'])->name('ticket.checkout');
+Route::get('/ticket/festival', [TicketController::class, 'ticket_festival'])->name('ticket.festival');
+Route::get('/ticket/vip', [TicketController::class, 'ticket_vip'])->name('ticket.vip');
+Route::get('/', [TicketController::class, 'index'])->name('ticket.index');
+Route::post('/checkout/festival', [TicketController::class, 'checkout_festival'])->name('ticket.checkout.festival');
+Route::post('/checkout/vip', [TicketController::class, 'checkout_vip'])->name('ticket.checkout.vip');

@@ -20,14 +20,34 @@ class TicketController extends Controller
         return view('ticket.index');
     }
 
-    public function checkout(Request $request)
+    public function ticket_festival()
     {
+        return view('ticket.festival');
+    }
+
+    public function ticket_vip()
+    {
+        return view('ticket.vip');
+    }
+
+    public function checkout_festival(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'qty' => 'required|number',
+        ]);
+        $price = 100000;
         $ticket = new Ticket();
+        $ticket->name = $request->name;
         $ticket->email = $request->email;
+        $ticket->phone = $request->phone;
+        $ticket->category = 'vip';
         $ticket->status = 'pending';
         $ticket->qty = $request->qty;
-        $ticket->price = $request->price;
-        $ticket->total_price = $request->qty * $request->price;
+        $ticket->price = $price;
+        $ticket->total_price = $request->qty * $price;
         $ticket->created_at = Carbon::now();
         $ticket->updated_at = Carbon::now();
         $ticket->save();
@@ -58,9 +78,69 @@ class TicketController extends Controller
                 'gross_amount' => $ticket->total_price,
             ),
             'customer_details' => array(
-                'first_name' => $ticket->email,
+                'first_name' => $ticket->name,
                 'last_name' => '',
                 'email' => $ticket->email,
+                'phone' => $ticket->phone,
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+        return view('ticket.checkout', compact('snapToken', 'ticket'));
+    }
+    public function checkout_vip(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'qty' => 'required|number',
+        ]);
+        $price = 130000;
+        $ticket = new Ticket();
+        $ticket->name = $request->name;
+        $ticket->email = $request->email;
+        $ticket->phone = $request->phone;
+        $ticket->category = 'vip';
+        $ticket->status = 'pending';
+        $ticket->qty = $request->qty;
+        $ticket->price = $price;
+        $ticket->total_price = $request->qty * $price;
+        $ticket->created_at = Carbon::now();
+        $ticket->updated_at = Carbon::now();
+        $ticket->save();
+
+        /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
+        composer require midtrans/midtrans-php
+                                    
+        Alternatively, if you are not using **Composer**, you can download midtrans-php library 
+        (https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require 
+        the file manually.   
+
+        require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
+
+        //SAMPLE REQUEST START HERE
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $ticket->id,
+                'gross_amount' => $ticket->total_price,
+            ),
+            'customer_details' => array(
+                'first_name' => $ticket->name,
+                'last_name' => '',
+                'email' => $ticket->email,
+                'phone' => $ticket->phone,
             ),
         );
 

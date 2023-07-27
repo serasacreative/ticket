@@ -23,38 +23,39 @@
                         <h6 class="card-title">Order Your Ticket</h6>
                     </div>
                     <div class="card-body">
-                        <h1> Ticket </h1>
-
-                        <form method="POST" action="{{route('ticket.checkout')}}">
-                            @csrf
-                            <div class="modal-body">
-                                {{-- Email --}}
-                                <div class="row align-items-end my-2 ">
-                                    <div class="col-md">
-                                        <label>Email :</label>
-                                        <input class="form-control" type="email" placeholder="Email" required name="email">
+                        <h1> Ticket List</h1>
+                        <div class="row w-100 d-flex justify-content-evenly">
+                            <div class="col-lg-3 col-md-12">
+                                <div class="card py-4 text-center">
+                                    <div class="card-body">
+                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
+                                        <h2 class="pricing-header">Festival</h2>
+                                        <ul class="pricing-features list-unstyled">
+                                            <li class="my-2">Free Merchandise</li>
+                                            <li class="my-2"><i class="fa fa-calendar"></i> On 27 Aug 2023</li>
+                                            <li class="my-2"><i class="fa fa-clock">15:00 - 24:00 WIB</i></li>
+                                        </ul>
+                                        <p class="fs-2">Rp 100.000</p>
+                                        <a href="{{route('ticket.festival')}}" class="btn btn-outline-primary">Buy</a>
                                     </div>
                                 </div>
-                                {{-- QTY --}}
-                                <div class="row align-items-end my-2 ">
-                                    <div class="col-md">
-                                        <label>Jumlah tiket :</label>
-                                        <input class="form-control" type="number" placeholder="Jumlah Tiker" required name="qty">
-                                    </div>
-                                </div>
-                                {{-- QTY --}}
-                                <div class="row align-items-end my-2 ">
-                                    <div class="col-md">
-                                        <label>Harga satuan :</label>
-                                        <input class="form-control" type="number" placeholder="Harga Satuan" required name="price">
-                                    </div>
-                                </div>
-
                             </div>
-                            <div class="modal-footer mt-3">
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            <div class="col-lg-3 col-md-12">
+                                <div class="card py-4 text-center">
+                                    <div class="card-body">
+                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
+                                        <h2 class="pricing-header">VIP</h2>
+                                        <ul class="pricing-features list-unstyled">
+                                            <li class="my-2">Free Merchandise</li>
+                                            <li class="my-2"><i class="fa fa-calendar"></i> On 27 Aug 2023</li>
+                                            <li class="my-2"><i class="fa fa-clock">15:00 - 24:00 WIB</i></li>
+                                        </ul>
+                                        <p class="fs-2">Rp 130.000</p>
+                                        <a href="{{route('ticket.vip')}}" class="btn btn-outline-primary">Buy</a>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
