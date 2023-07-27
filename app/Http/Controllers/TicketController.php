@@ -134,36 +134,36 @@ class TicketController extends Controller
         require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
 
         //SAMPLE REQUEST START HERE
-        try {
-        // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
+    //     try {
+    //     // Set your Merchant Server Key
+    //     \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    //     // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+    //     \Midtrans\Config::$isProduction = false;
+    //     // Set sanitization on (default)
+    //     \Midtrans\Config::$isSanitized = true;
+    //     // Set 3DS transaction for credit card to true
+    //     \Midtrans\Config::$is3ds = true;
 
-        $params = array(
-            'transaction_details' => array(
-                'order_id' => $ticket->id,
-                'gross_amount' => $ticket->total_price,
-            ),
-            'customer_details' => array(
-                'first_name' => $ticket->name,
-                'last_name' => '',
-                'email' => $ticket->email,
-                'phone' => $ticket->phone,
-            ),
-        );
+    //     $params = array(
+    //         'transaction_details' => array(
+    //             'order_id' => $ticket->id,
+    //             'gross_amount' => $ticket->total_price,
+    //         ),
+    //         'customer_details' => array(
+    //             'first_name' => $ticket->name,
+    //             'last_name' => '',
+    //             'email' => $ticket->email,
+    //             'phone' => $ticket->phone,
+    //         ),
+    //     );
 
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-    } catch (\Throwable $e) {
-        // Handle any exceptions that occur during the API call
-        return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
-    }
+    //     $snapToken = \Midtrans\Snap::getSnapToken($params);
+    // } catch (\Throwable $e) {
+    //     // Handle any exceptions that occur during the API call
+    //     return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
+    // }
 
-        return view('ticket.checkout', compact('snapToken', 'ticket'));
+    //     return view('ticket.checkout', compact('snapToken', 'ticket'));
     }
 
     public function callback(Request $request)
