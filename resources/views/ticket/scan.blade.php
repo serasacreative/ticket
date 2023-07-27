@@ -78,31 +78,33 @@
                     });
 
                     Quagga.onDetected(function (result) {
-                        scannerRunning = false;
-                        Quagga.stop();
-                        if (result && result.codeResult && result.codeResult.code) {
-                            const barcodeValue = result.codeResult.code;
+                        if (scannerRunning) {
+                            scannerRunning = false;
+                            Quagga.stop();
+                            if (result && result.codeResult && result.codeResult.code) {
+                                const barcodeValue = result.codeResult.code;
 
-                            $.ajax({
-                                url: "{{ route('ticket.verify') }}",
-                                type: "POST",
-                                data: { barcode: barcodeValue },
-                                headers: {
-                                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                                },
-                                success: function (response) {
-                                    if(response){
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'Ticket successfully scanned!',
-                                            text: 'Quantity: ' + response.qty,
-                                        });
-                                    }
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error("Error sending AJAX request:", error);
-                                },
-                            });
+                                $.ajax({
+                                    url: "{{ route('ticket.verify') }}",
+                                    type: "POST",
+                                    data: { barcode: barcodeValue },
+                                    headers: {
+                                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                                    },
+                                    success: function (response) {
+                                        if (response) {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Ticket successfully scanned!',
+                                                text: 'Quantity: ' + response.qty,
+                                            });
+                                        }
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.error("Error sending AJAX request:", error);
+                                    },
+                                });
+                            }
                         }
                     });
                 }
