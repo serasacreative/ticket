@@ -26,11 +26,16 @@ class TicketController extends Controller
 
     public function ticket_festival()
     {
-        return view('ticket.festival');
+        $tickets = Ticket::where('category', 'vip')
+        ->where('status', 'paid')
+        ->sum('qty');
+        return $tickets;
+        return view('ticket.festival', compact('tickets'));
     }
 
     public function ticket_vip()
     {
+
         return view('ticket.vip');
     }
 

@@ -25,10 +25,10 @@
                         <h6 class="card-title">Order Your Ticket</h6>
                     </div>
                     <div class="card-body">
-                        <h1>Scan Ticket</h1>
+                        <h1>Scan Ticket</h1>0
                         <div class="row w-100 d-flex justify-content-evenly">
                             <div class="card py-4 text-center">
-                                <div class="card-body">
+                                <div class="w-100">
                                     <div id="barcode-scanner"></div>
                                     <button type="button" class="btn btn-outline-primary" id="scan-button">Scan</button>
                                     <button type="button" class="btn btn-outline-primary" id="stop-button">Stop</button>
