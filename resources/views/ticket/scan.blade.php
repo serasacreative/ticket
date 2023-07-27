@@ -79,7 +79,6 @@
                     Quagga.onDetected(function (result) {
                         if (scannerRunning) {
                             scannerRunning = false;
-                            Quagga.stop();
                             if (result && result.codeResult && result.codeResult.code) {
                                 const barcodeValue = result.codeResult.code;
 
@@ -105,7 +104,6 @@
                                             // Do not stop Quagga, let it continue scanning
                                         }
                                         scannerRunning = true;
-                                        Quagga.start();
                                     },
                                     error: function (xhr, status, error) {
                                         console.error("Error sending AJAX request:", error);
