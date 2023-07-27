@@ -192,6 +192,10 @@ class TicketController extends Controller
         return view('ticket.generate', compact('ticket'));
     }
 
+    public function scan()
+    {
+        return view('ticket.scan');
+    }
     /**
      * Show the form for creating a new resource.
      */
