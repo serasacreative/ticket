@@ -7,7 +7,7 @@
             width: 100%;
             height: 300px;
             border: 2px solid #ccc;
-            margin: 20px auto;
+            margin: 0;
             position: relative;
             overflow: hidden;
         }
