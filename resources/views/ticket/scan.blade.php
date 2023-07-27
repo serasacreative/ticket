@@ -67,6 +67,23 @@
         // Barcode scanning function
         function scanBarcode() {
             Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector("#barcode-scanner"),
+                    constraints: {
+                        facingMode: "environment" // Use the rear camera for mobile devices
+                    },
+                },
+                decoder: {
+                    readers: ["code_128_reader"], // Specify the barcode format to scan (e.g., CODE128)
+                    debug: {
+                        drawBoundingBox: true,
+                        showFrequency: true,
+                        drawScanline: true,
+                        showPattern: true,
+                    },
+                },
                 // ... (rest of the QuaggaJS initialization code)
             }, function (err) {
                 if (err) {
@@ -123,7 +140,4 @@
         });
     });
 </script>
-
 @endsection
-
-
