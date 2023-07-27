@@ -184,7 +184,10 @@ class TicketController extends Controller
     }
 
     public function generate($id){
-        return Crypt::decrypt($id);
+        $id = Crypt::decrypt($id);
+
+        $ticket = Ticket::find($id);
+        return $ticket;
     }
 
     /**
