@@ -61,26 +61,13 @@
 @section('js')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Flag to track if a successful scan has been processed
+        let successfulScanProcessed = false;
+
         // Barcode scanning function
         function scanBarcode() {
             Quagga.init({
-                inputStream: {
-                    name: "Live",
-                    type: "LiveStream",
-                    target: document.querySelector("#barcode-scanner"),
-                    constraints: {
-                        facingMode: "environment" // Use the rear camera for mobile devices
-                    },
-                },
-                decoder: {
-                    readers: ["code_128_reader"], // Specify the barcode format to scan (e.g., CODE128)
-                    debug: {
-                        drawBoundingBox: true,
-                        showFrequency: true,
-                        drawScanline: true,
-                        showPattern: true,
-                    },
-                },
+                // ... (rest of the QuaggaJS initialization code)
             }, function (err) {
                 if (err) {
                     console.error("Error initializing Quagga:", err);
@@ -91,28 +78,36 @@
 
             Quagga.onProcessed(function (result) {
                 if (result && result.codeResult && result.codeResult.code) {
-                    // Barcode detected, stop scanning
-                    const barcodeValue = result.codeResult.code;
+                    // Barcode detected, stop scanning and process only once
+                    if (!successfulScanProcessed) {
+                        successfulScanProcessed = true; // Set the flag to true
 
-                    // Send AJAX request to your Laravel backend
-                    $.ajax({
-                        url: "{{route('ticket.verify')}}",
-                        type: "POST",
-                        data: { barcode: barcodeValue },
-                        headers: {
-                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                        },
-                        success: function (response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Ticket successfully scanned !',
-                                text: 'Quantity : '+response.qty,
-                            });
-                        },
-                        error: function (xhr, status, error) {
-                            console.error("Error sending AJAX request:", error);
-                        },
-                    });
+                        const barcodeValue = result.codeResult.code;
+
+                        // Send AJAX request to your Laravel backend
+                        $.ajax({
+                            url: "{{route('ticket.verify')}}",
+                            type: "POST",
+                            data: { barcode: barcodeValue },
+                            headers: {
+                                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                            },
+                            success: function (response) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Ticket successfully scanned !',
+                                    text: 'Quantity : '+response.qty,
+                                });
+                            },
+                            error: function (xhr, status, error) {
+                                console.error("Error sending AJAX request:", error);
+                            },
+                            complete: function () {
+                                // Reset the flag after processing the scan
+                                successfulScanProcessed = false;
+                            }
+                        });
+                    }
                 }
             });
         }
@@ -123,9 +118,12 @@
         });
         document.getElementById("stop-button").addEventListener("click", function () {
             Quagga.stop();
+            // Reset the flag when stopping the scanner manually
+            successfulScanProcessed = false;
         });
     });
 </script>
+
 @endsection
 
 
