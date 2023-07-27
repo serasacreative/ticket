@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    {{$ticket->bar_code}}
     <svg id="barcode"></svg>
 </body>
 
@@ -19,7 +18,7 @@
 <script type="text/javascript" src="{{ asset('assets/plugin/barcodegen/JsBarcode.all.min.js') }}"></script>
 <script>
     $(function() {
-        $("#barcode").JsBarcode("0006-20230724-6", {
+        $("#barcode").JsBarcode("{{$ticket->bar_code}}", {
             width: 1.5,
             height: 65,
             fontSize: 26,
@@ -32,9 +31,9 @@
 
 $(() => {
         window.print()
-        // const afterPrint = setTimeout(() => {
-        //     window.close()
-        // }, 500);
+        const afterPrint = setTimeout(() => {
+            window.close()
+        }, 500);
     });
 </script>
 
