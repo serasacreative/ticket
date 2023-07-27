@@ -203,9 +203,9 @@ class TicketController extends Controller
         if($ticket){
             $ticket->status = 'scanned';
             $ticket->save();
-            return $ticket;
+            return response()->json(['valid' => true, 'data' => $ticket]);
         }   
-        return response()->json(['valid' => false]);;
+        return response()->json(['valid' => false]);
     }
     /**
      * Show the form for creating a new resource.

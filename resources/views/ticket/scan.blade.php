@@ -93,7 +93,7 @@
                                     },
                                     success: function (response) {
                                         console.log(response)
-                                        if (response) {
+                                        if (response.valid) {
                                             Swal.fire({
                                                 icon: 'success',
                                                 title: 'Ticket successfully scanned!',
