@@ -30,7 +30,7 @@ class TicketController extends Controller
         ->where('status', 'paid')
         ->sum('qty');
         $max_tickets = 0;
-        if($tickets >= 15){
+        if($tickets >= $max_tickets){
             return view('ticket.festival_soldout');
         }
         return view('ticket.festival', compact('tickets'));
@@ -45,7 +45,7 @@ class TicketController extends Controller
         if($tickets >= $max_tickets){
             return view('ticket.vip_soldout');
         }
-        return view('ticket.vip');
+        return view('ticket.vip', compact('tickets'));
     }
 
     public function checkout_festival(Request $request)
