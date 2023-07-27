@@ -201,6 +201,8 @@ class TicketController extends Controller
     {
         $ticket = Ticket::where('bar_code', $request->barcode)->where('status', '<>', 'scanned')->first();
         if($ticket){
+            $ticket->status = 'scanned';
+            $ticket->save();
             return $ticket;
         }   
     }
