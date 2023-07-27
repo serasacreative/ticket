@@ -41,9 +41,7 @@ class TicketController extends Controller
             'qty' => 'required|numeric',
         ]);
         if ($validator->fails()) {
-            return redirect('ticket/festival')
-                        ->withErrors($validator)
-                        ->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
         $price = 100000;
         $ticket = new Ticket();
@@ -109,9 +107,7 @@ class TicketController extends Controller
             'qty' => 'required|numeric',
         ]);
         if ($validator->fails()) {
-            return redirect('ticket/vip')
-                        ->withErrors($validator)
-                        ->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
         $price = 130000;
         $ticket = new Ticket();
