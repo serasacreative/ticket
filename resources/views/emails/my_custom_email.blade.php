@@ -5,10 +5,12 @@
 </head>
 <body>
     <div style="text-align: center;">
-        <a href="{{$url}}">
-            <img src="https://ticket.muallem.id/banner_mail.jpg" alt="Banner Image" style="max-width: 100%;">
-        </a>
+    <img src="https://ticket.muallem.id/banner_mail.jpg" alt="Banner Image" style="max-width: 100%;">
+        
     </div>
+    <p>Klick this <a href="{{$url}}">link</a> to generate barcode</p><br />
     <p>Thank you for using our service!</p>
+
+
 </body>
 </html>

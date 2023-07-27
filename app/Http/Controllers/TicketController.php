@@ -178,9 +178,13 @@ class TicketController extends Controller
                 $ticket->save();
 
                 $recipientEmail = $ticket->email;
-                Mail::to($recipientEmail)->send(new MyCustomEmail());
+                Mail::to($recipientEmail)->send(new MyCustomEmail($request->order_id));
             }
         }
+    }
+
+    public function generate($id){
+        return Crypt::decrypt($id);
     }
 
     /**
