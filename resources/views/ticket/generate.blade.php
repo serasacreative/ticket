@@ -32,9 +32,9 @@
 
 $(() => {
         window.print()
-        const afterPrint = setTimeout(() => {
-            window.close()
-        }, 500);
+        // const afterPrint = setTimeout(() => {
+        //     window.close()
+        // }, 500);
     });
 </script>
 
