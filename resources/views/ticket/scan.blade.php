@@ -82,7 +82,7 @@
 
         Quagga.onDetected(function (result) {
             const barcodeValue = result.codeResult.code;
-            alert("Barcode detected:", barcodeValue);
+            alert("Barcode detected:"+ barcodeValue);
 
             // Send AJAX request to your Laravel backend
             // $.ajax({
