@@ -97,8 +97,12 @@
                                             Swal.fire({
                                                 icon: 'success',
                                                 title: 'Ticket successfully scanned!',
-                                                text: 'Quantity: ' + response.qty,
+                                                text: 'Quantity: ' + response.data.qty,
                                             });
+                                        } else {
+                                            // Handle the case when the barcode is not valid
+                                            // For example, show an error message
+                                            console.log("Invalid barcode");
                                         }
                                     },
                                     error: function (xhr, status, error) {
