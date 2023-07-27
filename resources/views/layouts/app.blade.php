@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}" />
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-    @livewireStyles
 
     @yield('css')
     @stack('css')
@@ -120,28 +119,6 @@
     <!-- page js file -->
     <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
     
-    @livewireScripts
-
-    <script>
-
-        window.livewire.on('SwalSuccess', (title, message) => {
-            Swal.fire({
-                icon: 'success',
-                title: title,
-                text: message,
-            });
-        });
-        window.livewire.on('SwalError', (title, message) => {
-            Swal.fire({
-                icon: 'error',
-                title: title,
-                text: message,
-            });
-        });
-        Livewire.on('onSuccessStore', function () {
-            $('#detailModal').modal('hide');
-        });
-    </script>
     @yield('js')
     @stack('js')
 </body>

@@ -103,7 +103,11 @@
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
                         },
                         success: function (response) {
-                            console.log("Response from server:", response);
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Ticket successfully scanned !',
+                                text: 'Quantity : '+response.qty,
+                            });
                         },
                         error: function (xhr, status, error) {
                             console.error("Error sending AJAX request:", error);
