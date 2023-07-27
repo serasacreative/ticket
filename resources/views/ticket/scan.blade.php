@@ -74,7 +74,23 @@
 
         // Initialize Quagga
         Quagga.init({
-            // ... (rest of the QuaggaJS initialization code)
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector("#barcode-scanner"),
+                constraints: {
+                    facingMode: "environment" // Use the rear camera for mobile devices
+                },
+            },
+            decoder: {
+                readers: ["code_128_reader"], // Specify the barcode format to scan (e.g., CODE128)
+                debug: {
+                    drawBoundingBox: true,
+                    showFrequency: true,
+                    drawScanline: true,
+                    showPattern: true,
+                },
+            },
         }, function (err) {
             if (err) {
                 console.error("Error initializing Quagga:", err);
@@ -98,6 +114,7 @@
                                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
                             },
                             success: function (response) {
+                                console.log(response)
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Ticket successfully scanned !',
