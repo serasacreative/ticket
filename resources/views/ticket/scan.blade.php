@@ -3,8 +3,9 @@
 @section('css')
     
     <script src="{{ asset('quagga.min.js') }}"></script>
+    
     <style>
-         #barcode-scanner {
+        #barcode-scanner {
             width: 100%;
             height: 300px;
             border: 2px solid #ccc;
@@ -57,31 +58,40 @@
 @endsection
 
 @section('js')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Barcode scanning function
-            function scanBarcode() {
-                Quagga.init({
-                    inputStream: {
-                        name: "Live",
-                        type: "LiveStream",
-                        target: document.querySelector("#barcode-scanner"),
-                        constraints: {
-                            facingMode: "environment" // Use the rear camera for mobile devices
-                        },
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Barcode scanning function
+        function scanBarcode() {
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector("#barcode-scanner"),
+                    constraints: {
+                        facingMode: "environment" // Use the rear camera for mobile devices
                     },
-                    decoder: {
-                        readers: ["code_128_reader"], // Specify the barcode format to scan (e.g., CODE128)
+                },
+                decoder: {
+                    readers: ["code_128_reader"], // Specify the barcode format to scan (e.g., CODE128)
+                    debug: {
+                        drawBoundingBox: true,
+                        showFrequency: true,
+                        drawScanline: true,
+                        showPattern: true,
                     },
-                }, function (err) {
-                    if (err) {
-                        console.error("Error initializing Quagga:", err);
-                        return;
-                    }
-                    Quagga.start();
-                });
+                },
+            }, function (err) {
+                if (err) {
+                    console.error("Error initializing Quagga:", err);
+                    return;
+                }
+                Quagga.start();
+            });
 
-                Quagga.onDetected(function (result) {
+            Quagga.onProcessed(function (result) {
+                if (result && result.codeResult && result.codeResult.code) {
+                    // Barcode detected, stop scanning
+                    Quagga.stop();
                     const barcodeValue = result.codeResult.code;
                     alert("Barcode detected: " + barcodeValue);
 
@@ -97,18 +107,16 @@
                     //         console.error("Error sending AJAX request:", error);
                     //     },
                     // });
-
-                    // Stop barcode scanning after detection (optional)
-                    Quagga.stop();
-                });
-            }
-
-            // Attach the scanning function to the "Scan" button click event
-            document.getElementById("scan-button").addEventListener("click", function () {
-                scanBarcode();
+                }
             });
+        }
+
+        // Attach the scanning function to the "Scan" button click event
+        document.getElementById("scan-button").addEventListener("click", function () {
+            scanBarcode();
         });
-    </script>
+    });
+</script>
 @endsection
 
 
