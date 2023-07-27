@@ -43,16 +43,16 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Item</th>
-                                                        <th>Jumlah tiket</th>
-                                                        <th class="hidden-sm-down">Harga</th>
-                                                        <th>Total Harga</th>
+                                                        <th>Category</th>
+                                                        <th>Qty</th>
+                                                        <th class="hidden-sm-down">Price</th>
+                                                        <th>Total Price</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>Tiket Festival</td>
+                                                        <td>{{$ticket->category}}</td>
                                                         <td>{{$ticket->qty}}</td>
                                                         <td class="hidden-sm-down">RP {{$ticket->price}}</td>
                                                         <td>Rp {{$ticket->total_price}}</td>
@@ -63,10 +63,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h5>Note</h5>
-                                        <p>Tukarkan tiket untuk mendapatkan mercandise.</p>
+                                        <p>Tukarkan tiket untuk mendapatkan mercandise pada tanggal 27 Agustus 2023.</p>
                                     </div>
                                     <div class="col-md-12 text-end">
-                                        <button class="btn btn-primary" id="pay-button">Submit</button>
+                                        <button class="btn btn-primary" id="pay-button">Checkout</button>
                                     </div>
                                 </div>
                             </div>
