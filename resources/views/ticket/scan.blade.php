@@ -98,6 +98,8 @@
                                                 title: 'Ticket successfully scanned!',
                                                 text: 'Quantity: ' + response.data.qty,
                                             });
+                                            scannerRunning = true;
+                                            Quagga.start();
                                         } else {
                                             // Handle the case when the barcode is not valid
                                             // For example, show an error message
