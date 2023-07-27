@@ -2,7 +2,7 @@
 
 @section('css')
     
-    <script src="{{ asset('assets/plugin/quagga.min.js') }}"></script>
+    <script src="{{ asset('quagga.min.js') }}"></script>
 @endsection
 
 @section('content')
