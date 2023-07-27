@@ -26,7 +26,7 @@ class TicketController extends Controller
 
     public function ticket_festival()
     {
-        $tickets = Ticket::where('category', 'vip')
+        $tickets = Ticket::where('category', 'festival')
         ->where('status', 'paid')
         ->sum('qty');
         return $tickets;
