@@ -93,7 +93,6 @@
                 if (result && result.codeResult && result.codeResult.code) {
                     // Barcode detected, stop scanning
                     const barcodeValue = result.codeResult.code;
-                    alert("Barcode detected: " + barcodeValue);
 
                     // Send AJAX request to your Laravel backend
                     $.ajax({
