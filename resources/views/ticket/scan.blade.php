@@ -44,6 +44,7 @@
                                 <div class="card-body">
                                     <div id="barcode-scanner"></div>
                                     <button type="button" class="btn btn-outline-primary" id="scan-button">Scan</button>
+                                    <button type="button" class="btn btn-outline-primary" id="stop-button">Stop</button>
                                 </div>
                             </div>
                             
@@ -114,6 +115,9 @@
         // Attach the scanning function to the "Scan" button click event
         document.getElementById("scan-button").addEventListener("click", function () {
             scanBarcode();
+        });
+        document.getElementById("stop-button").addEventListener("click", function () {
+            Quagga.stop();
         });
     });
 </script>
