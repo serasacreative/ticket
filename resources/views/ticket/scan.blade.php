@@ -3,6 +3,16 @@
 @section('css')
     
     <script src="{{ asset('quagga.min.js') }}"></script>
+    <style>
+         #barcode-scanner {
+            width: 100%;
+            height: 300px;
+            border: 2px solid #ccc;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 @endsection
 
 @section('content')
