@@ -67,7 +67,7 @@ class TicketController extends Controller
         require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
 
         //SAMPLE REQUEST START HERE
-
+        try {
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -91,10 +91,10 @@ class TicketController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        if (!$snapToken) {
-            // Handle the error gracefully, e.g., redirect back with an error message
-            return redirect()->back()->with('error', 'Failed ! Please try again later.');
-        }
+    } catch (\Throwable $e) {
+        // Handle any exceptions that occur during the API call
+        return redirect()->back()->with('error', 'Failed ! Please try again later.');
+    }
 
         return view('ticket.checkout', compact('snapToken', 'ticket'));
     }
@@ -133,7 +133,7 @@ class TicketController extends Controller
         require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
 
         //SAMPLE REQUEST START HERE
-
+        try {
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -157,10 +157,10 @@ class TicketController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        if (!$snapToken) {
-            // Handle the error gracefully, e.g., redirect back with an error message
-            return redirect()->back()->with('error', 'Failed ! Please try again later.');
-        }
+    } catch (\Throwable $e) {
+        // Handle any exceptions that occur during the API call
+        return redirect()->back()->with('error', 'Failed ! Please try again later.');
+    }
 
         return view('ticket.checkout', compact('snapToken', 'ticket'));
     }
