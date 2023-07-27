@@ -199,7 +199,10 @@ class TicketController extends Controller
 
     public function verify(Request $request)
     {
-     return $request->barcode;   
+        $ticket = Ticket::where('bar_code', $request->barcode)->where('status', '<>', 'scanned')->first();
+        if($ticket){
+            return $ticket;
+        }   
     }
     /**
      * Show the form for creating a new resource.
