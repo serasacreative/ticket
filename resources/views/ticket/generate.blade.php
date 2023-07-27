@@ -29,6 +29,13 @@
     })
 </script>
 <script>
+
+$(() => {
+        window.print()
+        const afterPrint = setTimeout(() => {
+            window.close()
+        }, 500);
+    });
 </script>
 
 </html>
