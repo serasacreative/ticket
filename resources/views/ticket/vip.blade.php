@@ -51,7 +51,7 @@
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
                                                         <label>Email :</label>
-                                                        <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email" required name="email">
+                                                        <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email" required name="email" value="{{ old('email') }}">
                                                         @error('email')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -61,7 +61,7 @@
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
                                                         <label>Name :</label>
-                                                        <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Name" required name="name">
+                                                        <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Name" required name="name" value="{{ old('name') }}">
                                                         @error('name')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -71,7 +71,7 @@
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
                                                         <label>Phone :</label>
-                                                        <input class="form-control @error('phone') is-invalid @enderror" type="number" placeholder="Phone" required name="phone">
+                                                        <input class="form-control @error('phone') is-invalid @enderror" type="number" placeholder="Phone" required name="phone" value="{{ old('phone') }}">
                                                         @error('phone')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -81,7 +81,7 @@
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
                                                         <label>Quantity :</label>
-                                                        <input class="form-control @error('qty') is-invalid @enderror" type="number" placeholder="Quantity" required name="qty" id="qty">
+                                                        <input class="form-control @error('qty') is-invalid @enderror" type="number" placeholder="Quantity" required name="qty" id="qty" value="{{ old('qty') }}">
                                                         @error('qty')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -91,7 +91,7 @@
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
                                                         <label>Total Price :</label>
-                                                        <input class="form-control" type="text" placeholder="Total Price" disabled id="total_price">
+                                                        <input class="form-control" type="text" placeholder="Total Price" disabled id="total_price" value="{{(old('qty'))?old('qty')*130000:''}}">
                                                     </div>
                                                 </div>
 

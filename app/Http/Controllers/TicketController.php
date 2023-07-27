@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Mail\MyCustomEmail;
 use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Validator;
+
 
 class TicketController extends Controller
 {
@@ -32,12 +34,17 @@ class TicketController extends Controller
 
     public function checkout_festival(Request $request)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'qty' => 'required|number',
+            'qty' => 'required|numeric',
         ]);
+        if ($validator->fails()) {
+            return redirect('ticket/festival')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $price = 100000;
         $ticket = new Ticket();
         $ticket->name = $request->name;
@@ -91,12 +98,17 @@ class TicketController extends Controller
     }
     public function checkout_vip(Request $request)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'qty' => 'required|number',
+            'qty' => 'required|numeric',
         ]);
+        if ($validator->fails()) {
+            return redirect('ticket/vip')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $price = 130000;
         $ticket = new Ticket();
         $ticket->name = $request->name;
