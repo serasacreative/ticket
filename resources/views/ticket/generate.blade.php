@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Barcode Ticket</title>
     <style>
         @page {
             size: auto;
