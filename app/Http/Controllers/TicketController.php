@@ -27,7 +27,10 @@ class TicketController extends Controller
     public function ticket_festival()
     {
         $tickets = Ticket::where('category', 'festival')
-        ->where('status', 'paid')
+        ->where(function ($query) {
+            $query->where('status', 'paid')
+                ->orWhere('status', 'scanned');
+        })
         ->sum('qty');
         $max_tickets = 0;
         if($tickets >= $max_tickets){
@@ -38,8 +41,11 @@ class TicketController extends Controller
 
     public function ticket_vip()
     {
-        $tickets = Ticket::where('category', 'festival')
-        ->where('status', 'paid')
+        $tickets = Ticket::where('category', 'vip')
+        ->where(function ($query) {
+            $query->where('status', 'paid')
+                ->orWhere('status', 'scanned');
+        })
         ->sum('qty');
         $max_tickets = 15;
         if($tickets >= $max_tickets){
@@ -54,7 +60,7 @@ class TicketController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'qty' => 'required|numeric',
+            'qty' => 'required|numeric|max:10',
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
@@ -120,7 +126,7 @@ class TicketController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'qty' => 'required|numeric',
+            'qty' => 'required|numeric|max:10',
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
