@@ -92,7 +92,6 @@
             Quagga.onProcessed(function (result) {
                 if (result && result.codeResult && result.codeResult.code) {
                     // Barcode detected, stop scanning
-                    Quagga.stop();
                     const barcodeValue = result.codeResult.code;
                     alert("Barcode detected: " + barcodeValue);
 
