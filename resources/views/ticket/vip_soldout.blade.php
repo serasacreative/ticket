@@ -50,7 +50,7 @@
                             
                                         <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
                                         <h2 class="pricing-header"></h2>
-                                        <img src="{{asset('/sol-out.png')}}" class="img-fluid"/>
+                                        <img src="{{asset('sold-out.png')}}" class="img-fluid"/>
                                     </div>
                                 </div>
                             </div>
