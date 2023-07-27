@@ -57,68 +57,58 @@
     </div>
 
 @endsection
-
 @section('js')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Flag to track if the scanner is running
+        let scannerRunning = false;
+
         // Barcode scanning function
         function scanBarcode() {
-            Quagga.start();
+            if (!scannerRunning) {
+                scannerRunning = true; // Set the flag to true
+
+                Quagga.start();
+            }
         }
 
-        // Initialize Quagga once when the page loads
+        // Initialize Quagga
         Quagga.init({
-            inputStream: {
-                name: "Live",
-                type: "LiveStream",
-                target: document.querySelector("#barcode-scanner"),
-                constraints: {
-                    facingMode: "environment" // Use the rear camera for mobile devices
-                },
-            },
-            decoder: {
-                readers: ["code_128_reader"], // Specify the barcode format to scan (e.g., CODE128)
-                debug: {
-                    drawBoundingBox: true,
-                    showFrequency: true,
-                    drawScanline: true,
-                    showPattern: true,
-                },
-            },
+            // ... (rest of the QuaggaJS initialization code)
         }, function (err) {
             if (err) {
                 console.error("Error initializing Quagga:", err);
                 return;
             }
-            // Attach the processed event listener only once
+            // Attach the processed event listener
             Quagga.onProcessed(function (result) {
                 if (result && result.codeResult && result.codeResult.code) {
-                    // Barcode detected, stop scanning
-                    Quagga.stop();
+                    // Barcode detected, stop scanning and process only once
+                    if (scannerRunning) {
+                        scannerRunning = false; // Reset the flag
 
-                    const barcodeValue = result.codeResult.code;
+                        const barcodeValue = result.codeResult.code;
 
-                    // Send AJAX request to your Laravel backend
-                    $.ajax({
-                        url: "{{ route('ticket.verify') }}",
-                        type: "POST",
-                        data: { barcode: barcodeValue },
-                        headers: {
-                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                        },
-                        success: function (response) {
-                            console.log(response)
+                        // Send AJAX request to your Laravel backend
+                        $.ajax({
+                            url: "{{ route('ticket.verify') }}",
+                            type: "POST",
+                            data: { barcode: barcodeValue },
+                            headers: {
+                                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                            },
+                            success: function (response) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Ticket successfully scanned !',
                                     text: 'Quantity : ' + response.qty,
                                 });
-                            
-                        },
-                        error: function (xhr, status, error) {
-                            console.error("Error sending AJAX request:", error);
-                        },
-                    });
+                            },
+                            error: function (xhr, status, error) {
+                                console.error("Error sending AJAX request:", error);
+                            },
+                        });
+                    }
                 }
             });
         });
@@ -129,9 +119,13 @@
         });
 
         document.getElementById("stop-button").addEventListener("click", function () {
-            Quagga.stop();
+            if (scannerRunning) {
+                Quagga.stop();
+                scannerRunning = false; // Reset the flag when stopping the scanner manually
+            }
         });
     });
 </script>
 @endsection
+
 
