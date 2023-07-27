@@ -42,8 +42,15 @@
                             <div class="col-lg-3 col-md-12">
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
+                                        @if (session('error'))
+                                        <div class="alert alert-danger">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
+                            
                                         <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
                                         <h2 class="pricing-header"></h2>
+
                                         <form method="POST" action="{{route('ticket.checkout.vip')}}">
                                             @csrf
                                             <div class="modal-body">

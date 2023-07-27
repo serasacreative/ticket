@@ -93,6 +93,10 @@ class TicketController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
+        if (!$snapToken) {
+            // Handle the error gracefully, e.g., redirect back with an error message
+            return redirect()->back()->with('error', 'Failed ! Please try again later.');
+        }
 
         return view('ticket.checkout', compact('snapToken', 'ticket'));
     }
@@ -157,6 +161,10 @@ class TicketController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
+        if (!$snapToken) {
+            // Handle the error gracefully, e.g., redirect back with an error message
+            return redirect()->back()->with('error', 'Failed ! Please try again later.');
+        }
 
         return view('ticket.checkout', compact('snapToken', 'ticket'));
     }
