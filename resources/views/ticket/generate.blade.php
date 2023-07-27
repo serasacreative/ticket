@@ -30,9 +30,6 @@
 </script>
 <script>
 
-$(() => {
-        window.print()
-    });
 </script>
 
 </html>
