@@ -189,7 +189,7 @@ class TicketController extends Controller
         $id = Crypt::decrypt($id);
 
         $ticket = Ticket::find($id);
-        return $ticket;
+        return view('ticket.generate', compact('ticket'));
     }
 
     /**
