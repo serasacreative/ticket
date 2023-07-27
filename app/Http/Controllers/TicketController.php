@@ -60,7 +60,7 @@ class TicketController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'qty' => 'required|numeric|max:10',
+            'qty' => 'required|numeric|max:10|min:1',
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
@@ -126,7 +126,7 @@ class TicketController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'qty' => 'required|numeric|max:10',
+            'qty' => 'required|numeric|max:10|min:1',
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();

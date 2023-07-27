@@ -90,7 +90,7 @@
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
                                                         <label>Quantity :</label>
-                                                        <input class="form-control @error('qty') is-invalid @enderror" type="number" placeholder="Quantity" required name="qty" id="qty" value="{{ old('qty') }}">
+                                                        <input class="form-control @error('qty') is-invalid @enderror" type="number" placeholder="Quantity" required name="qty" id="qty" value="{{ old('qty') }}" max="10" min="1">
                                                         @error('qty')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror

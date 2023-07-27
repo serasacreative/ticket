@@ -25,22 +25,7 @@
                     <div class="card-body">
                         <h1> Ticket List</h1>
                         <div class="row w-100 d-flex justify-content-evenly">
-                            <div class="col-lg-3 col-md-12">
-                                <div class="card py-4 text-center">
-                                    <div class="card-body">
-                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
-                                        <h2 class="pricing-header">Festival</h2>
-                                        <ul class="pricing-features list-unstyled">
-                                            <li class="my-2">Free Merchandise</li>
-                                            <li class="my-2"><i class="fa fa-calendar"></i> On 27 Aug 2023</li>
-                                            <li class="my-2"><i class="fa fa-clock">15:00 - 24:00 WIB</i></li>
-                                        </ul>
-                                        <p class="fs-2">Rp 100.000</p>
-                                        <a href="{{route('ticket.festival')}}" class="btn btn-outline-primary">Buy</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-12">
+                            <div class="col-lg-4 col-md-12">
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
                                         <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
@@ -52,6 +37,21 @@
                                         </ul>
                                         <p class="fs-2">Rp 130.000</p>
                                         <a href="{{route('ticket.vip')}}" class="btn btn-outline-primary">Buy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card py-4 text-center">
+                                    <div class="card-body">
+                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
+                                        <h2 class="pricing-header">Festival</h2>
+                                        <ul class="pricing-features list-unstyled">
+                                            <li class="my-2">Free Merchandise</li>
+                                            <li class="my-2"><i class="fa fa-calendar"></i> On 27 Aug 2023</li>
+                                            <li class="my-2"><i class="fa fa-clock">15:00 - 24:00 WIB</i></li>
+                                        </ul>
+                                        <p class="fs-2">Rp 100.000</p>
+                                        <a href="{{route('ticket.festival')}}" class="btn btn-outline-primary">Buy</a>
                                     </div>
                                 </div>
                             </div>
