@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    {{$ticket->bar_code}}
     <svg id="barcode"></svg>
 </body>
 
