@@ -93,7 +93,7 @@ class TicketController extends Controller
         $snapToken = \Midtrans\Snap::getSnapToken($params);
     } catch (\Throwable $e) {
         // Handle any exceptions that occur during the API call
-        return redirect()->back()->with('error', 'Failed ! Please try again later.');
+        return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
     }
 
         return view('ticket.checkout', compact('snapToken', 'ticket'));
@@ -159,7 +159,7 @@ class TicketController extends Controller
         $snapToken = \Midtrans\Snap::getSnapToken($params);
     } catch (\Throwable $e) {
         // Handle any exceptions that occur during the API call
-        return redirect()->back()->with('error', 'Failed ! Please try again later.');
+        return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
     }
 
         return view('ticket.checkout', compact('snapToken', 'ticket'));
