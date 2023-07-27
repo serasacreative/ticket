@@ -41,7 +41,6 @@
         </div>
     </div>
 @endsection
-
 @section('js')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -103,6 +102,9 @@
                                             // Handle the case when the barcode is not valid
                                             // For example, show an error message
                                             console.log("Invalid barcode");
+                                            // Do not stop Quagga, let it continue scanning
+                                            scannerRunning = true;
+                                            Quagga.start();
                                         }
                                     },
                                     error: function (xhr, status, error) {
@@ -128,3 +130,4 @@
         });
     </script>
 @endsection
+
