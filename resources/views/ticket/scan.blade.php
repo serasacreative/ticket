@@ -57,57 +57,58 @@
 @endsection
 
 @section('js')
-<script>
-    // Barcode scanning function
-    function scanBarcode() {
-        Quagga.init({
-            inputStream: {
-                name: "Live",
-                type: "LiveStream",
-                target: document.querySelector("#barcode-scanner"),
-                constraints: {
-                    facingMode: "environment" // Use the rear camera for mobile devices
-                },
-            },
-            decoder: {
-                readers: ["ean_reader"], // Specify the barcode format to scan (e.g., EAN)
-            },
-        }, function (err) {
-            if (err) {
-                console.error("Error initializing Quagga:", err);
-                return;
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Barcode scanning function
+            function scanBarcode() {
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector("#barcode-scanner"),
+                        constraints: {
+                            facingMode: "environment" // Use the rear camera for mobile devices
+                        },
+                    },
+                    decoder: {
+                        readers: ["code_128_reader"], // Specify the barcode format to scan (e.g., CODE128)
+                    },
+                }, function (err) {
+                    if (err) {
+                        console.error("Error initializing Quagga:", err);
+                        return;
+                    }
+                    Quagga.start();
+                });
+
+                Quagga.onDetected(function (result) {
+                    const barcodeValue = result.codeResult.code;
+                    alert("Barcode detected: " + barcodeValue);
+
+                    // Send AJAX request to your Laravel backend
+                    // $.ajax({
+                    //     url: "/processBarcode",
+                    //     type: "POST",
+                    //     data: { barcode: barcodeValue },
+                    //     success: function (response) {
+                    //         console.log("Response from server:", response);
+                    //     },
+                    //     error: function (xhr, status, error) {
+                    //         console.error("Error sending AJAX request:", error);
+                    //     },
+                    // });
+
+                    // Stop barcode scanning after detection (optional)
+                    Quagga.stop();
+                });
             }
-            Quagga.start();
+
+            // Attach the scanning function to the "Scan" button click event
+            document.getElementById("scan-button").addEventListener("click", function () {
+                scanBarcode();
+            });
         });
-
-        Quagga.onDetected(function (result) {
-            const barcodeValue = result.codeResult.code;
-            alert("Barcode detected:"+ barcodeValue);
-
-            // Send AJAX request to your Laravel backend
-            // $.ajax({
-            //     url: "/processBarcode",
-            //     type: "POST",
-            //     data: { barcode: barcodeValue },
-            //     success: function (response) {
-            //         console.log("Response from server:", response);
-            //     },
-            //     error: function (xhr, status, error) {
-            //         console.error("Error sending AJAX request:", error);
-            //     },
-            // });
-
-            // Stop barcode scanning after detection (optional)
-            Quagga.stop();
-        });
-    }
-
-    // Attach the scanning function to the "Scan" button click event
-    document.getElementById("scan-button").addEventListener("click", function () {
-        scanBarcode();
-    });
-</script>
-
-    
+    </script>
 @endsection
+
 
