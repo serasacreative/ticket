@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ticket;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-
+use App\Models\Ticket;
 use App\Mail\MyCustomEmail;
-use Illuminate\Support\Facades\Crypt;
+
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -172,9 +173,10 @@ class TicketController extends Controller
         $hashed = hash('sha512', $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
 
         if($hashed == $request->signature_key){
-            if($request->transaction_status == 'capture'){
+            if($request->transaction_status == 'capture' || $request->transaction_status == 'settlement'){
                 $ticket = Ticket::find($request->order_id);
                 $ticket->status = 'paid';
+                $ticket->bar_code = str_pad($ticket->id, 5, "0", STR_PAD_LEFT). "-" . Carbon::parse($ticket->created_at)->format("Ymd") . "-" . strtoupper(Str::random(4));
                 $ticket->save();
 
                 $recipientEmail = $ticket->email;
