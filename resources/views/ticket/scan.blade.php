@@ -98,16 +98,14 @@
                                                 title: 'Ticket successfully scanned!',
                                                 text: 'Quantity: ' + response.data.qty,
                                             });
-                                            scannerRunning = true;
-                                            Quagga.start();
                                         } else {
                                             // Handle the case when the barcode is not valid
                                             // For example, show an error message
                                             console.log("Invalid barcode");
                                             // Do not stop Quagga, let it continue scanning
-                                            scannerRunning = true;
-                                            Quagga.start();
                                         }
+                                        scannerRunning = true;
+                                        Quagga.start();
                                     },
                                     error: function (xhr, status, error) {
                                         console.error("Error sending AJAX request:", error);
