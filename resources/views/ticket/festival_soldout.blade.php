@@ -36,20 +36,7 @@
                                             <li class="my-2"><i class="fa fa-clock">15:00 - 24:00 WIB</i></li>
                                         </ul>
                                         <p class="fs-2">Rp 100.000</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card py-4 text-center">
-                                    <div class="card-body">
-                                        @if (session('error'))
-                                            <div class="alert alert-danger">
-                                                {{ session('error') }}
-                                            </div>
-                                        @endif
-                            
-                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
-                                        <h2 class="pricing-header"></h2>
+
                                         <img src="{{asset('/sol-out.png')}}" class="img-fluid"/>
                                     </div>
                                 </div>
