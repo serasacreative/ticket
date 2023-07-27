@@ -196,6 +196,11 @@ class TicketController extends Controller
     {
         return view('ticket.scan');
     }
+
+    public function verify(Request $request)
+    {
+     return $request->barcode;   
+    }
     /**
      * Show the form for creating a new resource.
      */

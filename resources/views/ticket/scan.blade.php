@@ -96,17 +96,20 @@
                     alert("Barcode detected: " + barcodeValue);
 
                     // Send AJAX request to your Laravel backend
-                    // $.ajax({
-                    //     url: "/processBarcode",
-                    //     type: "POST",
-                    //     data: { barcode: barcodeValue },
-                    //     success: function (response) {
-                    //         console.log("Response from server:", response);
-                    //     },
-                    //     error: function (xhr, status, error) {
-                    //         console.error("Error sending AJAX request:", error);
-                    //     },
-                    // });
+                    $.ajax({
+                        url: "{{route('ticket.verify')}}",
+                        type: "POST",
+                        data: { barcode: barcodeValue },
+                        headers: {
+                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                        },
+                        success: function (response) {
+                            console.log("Response from server:", response);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error sending AJAX request:", error);
+                        },
+                    });
                 }
             });
         }
