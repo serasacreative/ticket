@@ -205,7 +205,7 @@ class TicketController extends Controller
             $ticket->save();
             return $ticket;
         }   
-        return $data['status'] = false;
+        return $request->all();
     }
     /**
      * Show the form for creating a new resource.
