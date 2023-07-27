@@ -120,10 +120,9 @@
             });
 
             document.getElementById("stop-button").addEventListener("click", function () {
-                if (scannerRunning) {
                     Quagga.stop();
                     scannerRunning = false;
-                }
+                
             });
         });
     </script>
