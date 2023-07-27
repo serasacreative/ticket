@@ -91,6 +91,7 @@
                                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
                                 },
                                 success: function (response) {
+                                    console.log(response)
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'Ticket successfully scanned!',
