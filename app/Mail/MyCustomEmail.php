@@ -32,7 +32,7 @@ class MyCustomEmail extends Mailable implements ShouldQueue
         return $this->view('emails.my_custom_email')
             ->subject('Ticket Notification')
             ->with([
-                'url' => "https://ticket.muallem.id/generate/$order_id",
+                'url' => "https://ticket.serasacreative.com/generate/$order_id",
             ]);
     }
 }
