@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    total order = {{$ticket->qty}}
+    total order = {{$ticket->qty}} 
     <svg id="barcode"></svg>
 </body>
 
@@ -30,8 +30,4 @@
         });
     })
 </script>
-<script>
-
-</script>
-0003620230728POCK
 </html>
