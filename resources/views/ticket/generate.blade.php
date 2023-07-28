@@ -23,7 +23,7 @@
             width: 1.5,
             height: 65,
             fontSize: 26,
-            format: "code128",
+            format: "EAN13",
             displayValue: true
         });
     })
