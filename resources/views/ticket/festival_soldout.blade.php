@@ -37,7 +37,7 @@
                                         </ul>
                                         <p class="fs-2">Rp 100.000</p>
 
-                                        <img src="{{asset('/sol-out.png')}}" class="img-fluid"/>
+                                        <img src="{{asset('/sold-out.png')}}" class="img-fluid"/>
                                     </div>
                                 </div>
                             </div>
