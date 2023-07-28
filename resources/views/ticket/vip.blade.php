@@ -127,7 +127,7 @@
 
 @section('js')
     <script>
-        $("#qty").change((e)=>{
+        $("#qty").keyup((e)=>{
             let qty = e.target.value;
             let price = 130000;
             let total_price = qty*price;
