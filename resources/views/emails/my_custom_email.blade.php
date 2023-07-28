@@ -9,7 +9,7 @@
         
     </div>
     <p>Klick this <a href="{{$url}}">link</a> to generate barcode</p><br />
-    <p>Thank you for using our service!</p>
+    <p>Thank you for using our service !</p>
 
 
 </body>
