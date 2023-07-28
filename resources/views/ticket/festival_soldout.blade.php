@@ -38,6 +38,7 @@
                                         <p class="fs-2">Rp 100.000</p>
 
                                         <img src="{{asset('/sold-out.png')}}" class="img-fluid"/>
+                                        Yoi
                                     </div>
                                 </div>
                             </div>
