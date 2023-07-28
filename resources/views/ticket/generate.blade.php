@@ -24,7 +24,7 @@
             width: 1.5,
             height: 65,
             fontSize: 26,
-            format: "ean13",
+            format: "code128",
             displayValue: true
         });
     })
