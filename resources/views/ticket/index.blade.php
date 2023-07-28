@@ -38,7 +38,7 @@
 
 @section('content')
     <div class="hero-section">
-        <img src="{{ asset('path/to/your/hero-image.jpeg') }}" alt="Hero Image" class="img-fluid hero-image">
+        <img src="{{ asset('assets/hero-image.jpeg') }}" alt="Hero Image" class="img-fluid hero-image">
         <div class="hero-content">
             <div class="container">
                 <div class="row justify-content-center">
