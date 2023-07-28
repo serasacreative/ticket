@@ -20,9 +20,9 @@
                                             <th>#</th>
                                             <th>ticket_pending</th>
                                             <th>ticket_paid</th>
-                                            <th>ticket_paid_total</th>
+                                            <th>ticket_paid_total_price</th>
                                             <th>ticket_scanned</th>
-                                            <th>ticket_scanned_total</th>
+                                            <th>ticket_scanned_total_price</th>
                                         </tr>
                                     </thead>
                                     <tbody>
