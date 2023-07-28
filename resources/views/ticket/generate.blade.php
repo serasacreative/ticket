@@ -8,10 +8,11 @@
             size: auto;
             margin: 0mm;
         }
-    </style>
+        </style>
 </head>
 
 <body>
+    total order = {{$ticket->qty}}
     <svg id="barcode"></svg>
 </body>
 
@@ -20,7 +21,7 @@
 <script>
     $(function() {
         // $("#barcode").JsBarcode("{{$ticket->bar_code}}", {
-        $("#barcode").JsBarcode("0003620230728POCK", {
+        $("#barcode").JsBarcode("{{$ticket->bar_code}}", {
             width: 1.5,
             height: 65,
             fontSize: 26,
@@ -32,5 +33,5 @@
 <script>
 
 </script>
-
+0003620230728POCK
 </html>
