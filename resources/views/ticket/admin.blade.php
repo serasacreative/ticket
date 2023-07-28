@@ -45,7 +45,7 @@
                                                     <td>{{$ticket_pending}}</td>
                                                     <td>{{$ticket_paid}}</td>
                                                     <td>{{$ticket_paid_total}}</td>
-                                                    <td>{{$ticked_scanned}}</td>
+                                                    <td>{{$ticket_scanned}}</td>
                                                     <td>{{$ticket_scanned_total}}</td>
                                                 </tr>
                                             </tbody>
