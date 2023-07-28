@@ -24,34 +24,30 @@
                     </div>
                     <div class="card-body">
                         <h1> Ticket List</h1>
-                        <div class="row w-100 d-flex justify-content-evenly">
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>ticket_pending</th>
-                                                    <th>ticket_paid</th>
-                                                    <th>ticket_paid_total</th>
-                                                    <th>ticket_scanned</th>
-                                                    <th>ticket_scanned_total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>{{$ticket_pending}}</td>
-                                                    <td>{{$ticket_paid}}</td>
-                                                    <td>{{$ticket_paid_total}}</td>
-                                                    <td>{{$ticket_scanned}}</td>
-                                                    <td>{{$ticket_scanned_total}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>ticket_pending</th>
+                                            <th>ticket_paid</th>
+                                            <th>ticket_paid_total</th>
+                                            <th>ticket_scanned</th>
+                                            <th>ticket_scanned_total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>{{$ticket_pending}}</td>
+                                            <td>{{$ticket_paid}}</td>
+                                            <td>{{$ticket_paid_total}}</td>
+                                            <td>{{$ticket_scanned}}</td>
+                                            <td>{{$ticket_scanned_total}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
