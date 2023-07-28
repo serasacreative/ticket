@@ -32,7 +32,7 @@ class TicketController extends Controller
                 ->orWhere('status', 'scanned');
         })
         ->sum('qty');
-        $max_tickets = 0;
+        $max_tickets = 3000;
         if($tickets >= $max_tickets){
             return view('ticket.festival_soldout');
         }
@@ -47,7 +47,7 @@ class TicketController extends Controller
                 ->orWhere('status', 'scanned');
         })
         ->sum('qty');
-        $max_tickets = 15;
+        $max_tickets = 500;
         if($tickets >= $max_tickets){
             return view('ticket.vip_soldout');
         }
