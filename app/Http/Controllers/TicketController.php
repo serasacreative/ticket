@@ -228,6 +228,16 @@ class TicketController extends Controller
         }   
         return response()->json(['valid' => false]);
     }
+
+    public function admin(){
+        $ticket_pending = Ticket::where('status', 'pending')->sum('qty');
+        $ticket_paid = Ticket::where('status', 'paid')->sum('qty');
+        $ticket_paid_total = Ticket::where('status', 'paid')->sum('total_price');
+        $ticket_scanned = Ticket::where('status', 'scanned')->sum('qty');
+        $ticket_scanned_total = Ticket::where('status', 'scanned')->sum('total_price');
+
+        return view('ticket.admin', compact('ticket_pending', 'ticket_paid', 'ticket_scanned', 'ticket_paid_total', 'ticket_scanned_total'));
+    }
     /**
      * Show the form for creating a new resource.
      */
