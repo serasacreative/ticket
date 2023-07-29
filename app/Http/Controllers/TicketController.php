@@ -212,6 +212,7 @@ class TicketController extends Controller
                 Mail::to($recipientEmail)->send(new MyCustomEmail($request->order_id));
             }
         }
+        return 'salah';
     }
 
     public function invoice($id){
