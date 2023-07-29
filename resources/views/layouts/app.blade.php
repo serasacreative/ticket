@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css') }}">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
