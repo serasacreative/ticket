@@ -66,8 +66,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h5>Note</h5>
-                                        <p>Tiket akan dikirim ke email anda.</p>
-                                        <p>Tukarkan tiket untuk mendapatkan mercandise pada tanggal 27 Agustus 2023.</p>
+                                        <p>Tiket yang akan dikirim email.</p>
+                                        <p>Akan ditukarkan merchandise dan tiket gelang pada tgl 27 Agustus.</p>
                                     </div>
                                 </div>
                             </div>
