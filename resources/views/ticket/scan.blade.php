@@ -29,30 +29,33 @@
         function scanning(barcode) {
             // Make an AJAX request to the Laravel route using jQuery
             console.log(barcode)
-            $.ajax({
-                url: '/scan-barcode',
-                method: 'POST',
-                data: { barcode: barcode },
-                success: function(response) {
-                    // Show SweetAlert with the response message
-                    Swal.fire({
-                        title: 'Success',
-                        text: response.message,
-                        icon: 'success',
-                    }).then(() => {
-                        // After clicking 'OK', refocus on the barcode input field for automatic scanning
-                        document.getElementById('barcodeInput').focus();
-                    });
-                },
-                error: function(error) {
-                    // Show SweetAlert with error message
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'Error processing barcode data',
-                        icon: 'error',
-                    });
-                }
-            });
+            // $.ajax({
+            //     url: '/scan-barcode',
+            //     method: 'POST',
+            //     data: { barcode: barcode },
+            //     headers: {
+            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            //     },
+            //     success: function(response) {
+            //         // Show SweetAlert with the response message
+            //         Swal.fire({
+            //             title: 'Success',
+            //             text: response.message,
+            //             icon: 'success',
+            //         }).then(() => {
+            //             // After clicking 'OK', refocus on the barcode input field for automatic scanning
+            //             document.getElementById('barcodeInput').focus();
+            //         });
+            //     },
+            //     error: function(error) {
+            //         // Show SweetAlert with error message
+            //         Swal.fire({
+            //             title: 'Error',
+            //             text: 'Error processing barcode data',
+            //             icon: 'error',
+            //         });
+            //     }
+            // });
         }
 
 </script>
