@@ -22,7 +22,7 @@ Route::get('/scan/eyJpdiI6IkVqZUQzTlhTN1pRalNUTmdIUkJXeWc9PSIsInZhbHVlIjoiRFRNYU
 Route::get('/ticket/admin/eyJpdiI6ImpuejNhbU9IN3pENjRIcldpckFZbXc9PSIsInZhbHVlIjoiMlpsZDJWTnBlLzFWRkk4S1RzMS9XQ2N5cEpTNi9BNzZiRjNWUC9MZ2xUaz0iLCJtYWMiOiJkMDgxN2Q1ZTg4ZDhjZWFlMWMzNWNjNDU3MjM5YTgzNGRkODA3NDk5YzM5Njk5NGJiZDFhOTFkZGU0YWRiYTBjIiwidGFnIjoiIn0', [TicketController::class, 'admin'])->name('ticket.admin');
 Route::post('/ticket/verify', [TicketController::class, 'verify'])->name('ticket.verify');
 Route::get('/ticket/invoice/{id}', [TicketController::class, 'invoice'])->name('ticket.invoice');
-Route::get('/ticket/checkout/{id}', [TicketController::class, 'checkout'])->name('ticket.checkout');
+Route::get('/ticket/checkout', [TicketController::class, 'checkout'])->name('ticket.checkout');
 Route::get('/', [TicketController::class, 'index'])->name('ticket.index');
 Route::post('/checkout/festival', [TicketController::class, 'checkout_festival'])->name('ticket.checkout.festival');
 Route::post('/checkout/vip', [TicketController::class, 'checkout_vip'])->name('ticket.checkout.vip');
