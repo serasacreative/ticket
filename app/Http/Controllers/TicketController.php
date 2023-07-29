@@ -123,7 +123,9 @@ class TicketController extends Controller
         return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
     }
 
-        return view('ticket.checkout', compact('snapToken', 'ticket'));
+    $currentDate = Carbon::now()->format('M d, Y');
+
+        return view('ticket.checkout', compact('snapToken', 'ticket', 'currentDate'));
     }
     public function checkout_vip(Request $request)
     {
