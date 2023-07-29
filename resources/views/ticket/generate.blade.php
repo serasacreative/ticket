@@ -56,7 +56,7 @@
     </div>
 
     <p class="text-center h4">Total Tiket: <span class="h2 text-primary">{{$ticket->qty}}</span></p>
-    <h4 class="text-dark">TUNJUKKAN BARCODE SAAT PENUKARAN TIKET!</h4>
+    <h4 class="text-danger text-center">TUNJUKKAN BARCODE SAAT PENUKARAN TIKET!</h4>
 </div>
 
 @endsection
