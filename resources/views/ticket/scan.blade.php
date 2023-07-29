@@ -11,10 +11,10 @@
                         <h6 class="card-title">Ticket Scanner</h6>
                     </div>
                     <div class="card-body">
-                        <h1>Scanning</h1>0
+                        <h1>Scanning</h1>
                         <div class="row w-100 d-flex justify-content-evenly">
                             <div class="card py-4 text-center"> 
-                                <input type="text" id="barcodeInput" autofocus>
+                                <input type="text" id="barcodeInput" autofocus oninput="scanning(this.value)">
                             </div>
                         </div>
                     </div>
@@ -27,8 +27,9 @@
 <script>
     $(document).ready(function() {
         // Function to handle the AJAX request
-        function sendBarcodeData(barcode) {
+        function scanning(barcode) {
             // Make an AJAX request to the Laravel route using jQuery
+            console.log(barcode)
             $.ajax({
                 url: '/scan-barcode',
                 method: 'POST',
@@ -55,23 +56,6 @@
             });
         }
 
-        // Event listener for the barcode input field
-        $('#barcodeInput').on('input', function(event) {
-            // Get the barcode input value
-            const barcode = event.target.value;
-
-            // Assuming the scanner appends a newline character at the end of the scan
-            if (barcode.endsWith('\n')) {
-                // Remove the newline character
-                const trimmedBarcode = barcode.trim();
-
-                // Call the function to handle the barcode data
-                sendBarcodeData(trimmedBarcode);
-
-                // Clear the input field after processing
-                event.target.value = '';
-            }
-        });
     });
 </script>
 
