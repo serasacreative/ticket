@@ -39,7 +39,11 @@
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
-                                        <h2 class="pricing-header">VIP</h2>
+                                        <h2 class="pricing-header">
+                                            @if($is_presale)
+                                            <span class="text-info">PRE-SALE</span>
+                                            @endif
+                                             VIP</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
                                             <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
@@ -60,7 +64,11 @@
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
-                                        <h2 class="pricing-header">Festival</h2>
+                                        <h2 class="pricing-header">
+                                            @if($is_presale)
+                                            <span class="text-info">PRE-SALE</span>
+                                            @endif
+                                            Festival</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
                                             <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
