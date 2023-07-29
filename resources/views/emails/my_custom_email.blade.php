@@ -14,7 +14,7 @@
     </div>
     
     Nama : {{$ticket->name}} 
-    Kategori : {{$ticket->name}} 
+    Kategori : {{$ticket->category}} 
     Jumlah Tiket : {{$ticket->qty}} 
 
     <!-- Add a canvas element to render the barcode -->
