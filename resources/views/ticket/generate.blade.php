@@ -56,7 +56,7 @@
             <svg id="barcode"></svg>
         </div>
 
-        <p>Total Tiket: <span class="h3 text-primary">{{$ticket->qty}}<span></p>
+        <p>Total Tiket: <p class="h3 text-primary">{{$ticket->qty}}<p></p>
     </div>
 </body>
 
