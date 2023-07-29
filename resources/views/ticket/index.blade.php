@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-5">
+                            <div class="col-lg-4 col-md-5 mt-3">
                                 <div class="card py-4 text-center border border-5 border-success">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">

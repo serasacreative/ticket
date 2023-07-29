@@ -27,7 +27,7 @@
                             <div class="col-lg-4 col-md-12">
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
-                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
+                                        <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
                                         <h2 class="pricing-header">Festival</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
@@ -57,7 +57,7 @@
                                             </div>
                                         @endif
                             
-                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
+                                        <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
                                         <h2 class="pricing-header"> Lengkapi data anda !</h2>
                                         <form method="POST" action="{{route('ticket.checkout.festival')}}">
                                             @csrf
