@@ -39,7 +39,7 @@
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
-                                        <h2 class="pricing-header text-success">
+                                        <h2 class="pricing-header text-primary">
                                             @if($is_presale)
                                             <span class="text-info h5">PRE-SALE</span>
                                             @endif

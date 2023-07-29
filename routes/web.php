@@ -26,3 +26,4 @@ Route::get('/ticket/invoice/{id}', [TicketController::class, 'invoice'])->name('
 Route::get('/', [TicketController::class, 'index'])->name('ticket.index');
 Route::post('/checkout/festival', [TicketController::class, 'checkout_festival'])->name('ticket.checkout.festival');
 Route::post('/checkout/vip', [TicketController::class, 'checkout_vip'])->name('ticket.checkout.vip');
+Route::get('/email', [TicketController::class, 'email'])->name('email');

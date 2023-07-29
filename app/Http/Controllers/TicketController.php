@@ -271,6 +271,10 @@ class TicketController extends Controller
 
         return view('ticket.admin', compact('ticket_pending', 'ticket_paid', 'ticket_scanned', 'ticket_paid_total', 'ticket_scanned_total'));
     }
+
+    public function email(){
+        return view('ticket.email');
+    }
     /**
      * Show the form for creating a new resource.
      */
