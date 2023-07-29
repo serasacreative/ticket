@@ -25,11 +25,11 @@
 @endsection
 
 @section('content')
-    <div class="hero-section">
-        <img src="{{ asset('hero-image.jpeg') }}" alt="Hero Image" class="img-fluid hero-image">
-    </div>
+    
     <div class="container-fluid">
-
+        <div class="hero-section">
+            <img src="{{ asset('hero-image.jpeg') }}" alt="Hero Image" class="img-fluid hero-image">
+        </div>
         <div class="row clearfix">
             <div class="col-12">
                 <div class="card">
