@@ -13,12 +13,12 @@
             </div>
             <div class="card-body">
                 <ul class="list-group list-group-custom">
-                    <li class="list-group-item">Nama : {{$ticket->name}} </li>
-                    <li class="list-group-item">Kategori : {{$ticket->name}}</li>
-                    <li class="list-group-item">Jumlah Tiket : {{$ticket->qty}}</li>
+                    <li class="list-group-item">Nama : aku </li>
+                    <li class="list-group-item">Kategori : VIP</li>
+                    <li class="list-group-item">Jumlah Tiket : 3</li>
                 </ul>
             </div>
-            <div class="alert alert-info" role="alert">Dapatkan tiket anda dengan klik <a href="https://ticket.serasacreative.com/ticket/generate/{{$url}}" class="btn btn-primary text-decoration-none text-white" > Tiket Saya </a></div>
+            <div class="alert alert-info" role="alert">Dapatkan tiket anda dengan klik <a href="https://ticket.serasacreative.com/ticket/generate/" class="btn btn-primary text-decoration-none text-white" > Tiket Saya </a></div>
         </div>
 </body>
 
