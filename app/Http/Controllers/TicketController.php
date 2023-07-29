@@ -240,7 +240,20 @@ class TicketController extends Controller
     }
     public function checkout(Request $request){
         $ticket_id = $request->input('order_id');;
-        $ticket = Ticket::find($ticket_id);
+        $ticket_old = Ticket::find($ticket_id);
+
+        $ticket = new Ticket();
+        $ticket->name = $ticket_old->name;
+        $ticket->email = $ticket_old->email;
+        $ticket->phone = $ticket_old->phone;
+        $ticket->category = $ticket_old->category;
+        $ticket->status = 'pending';
+        $ticket->qty = $ticket_old->qty;
+        $ticket->price = $ticket_old->price;
+        $ticket->total_price = $ticket_old->total_price;
+        $ticket->created_at = Carbon::now();
+        $ticket->updated_at = Carbon::now();
+        $ticket->save();
 
         //SAMPLE REQUEST START HERE
         try {
