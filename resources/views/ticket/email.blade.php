@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>TICKET MAHAFEST</title>
+@extends('layouts.app')
 
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-</head>
-<body>
+@section('content')
     <div style="text-align: center;">
         <div class="card">
             <div class="card-header">
@@ -25,6 +20,4 @@
             </div>
             
         </div>
-</body>
-
-</html>
+@endsection
