@@ -49,7 +49,7 @@ function scanning(barcode) {
                 console.log(response)
                 // Show SweetAlert with the response message
                 Swal.fire({
-                    title: 'Success',
+                    icon: 'Success',
                     text: response.message,
                     icon: 'success',
                 }).then(() => {
