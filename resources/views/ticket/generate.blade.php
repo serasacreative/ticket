@@ -50,7 +50,7 @@
 <body>
     <div class="ticket-container">
         <!-- Replace "path/to/your/image.jpg" with the actual path to your image -->
-        <img class="ticket-image" src="{{ asset('Barcode.jpg') }}" alt="Ticket Image">
+        <img class="ticket-image" src="{{ asset('hero-image.jpg') }}" alt="Ticket Image">
         
         <div class="ticket-barcode">
             <svg id="barcode"></svg>
