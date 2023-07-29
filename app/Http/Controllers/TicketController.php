@@ -205,7 +205,7 @@ class TicketController extends Controller
             if($request->transaction_status == 'capture' || $request->transaction_status == 'settlement'){
                 $ticket = Ticket::find($request->order_id);
                 $ticket->status = 'paid';
-                $ticket->bar_code = str_pad($ticket->id, 5, "0", STR_PAD_LEFT). Carbon::parse($ticket->created_at)->format("Ymd"). strtoupper(Str::random(4)).'halo';
+                $ticket->bar_code = str_pad($ticket->id, 5, "0", STR_PAD_LEFT). Carbon::parse($ticket->created_at)->format("Ymd"). strtoupper(Str::random(4));
                 $ticket->save();
 
                 $recipientEmail = $ticket->email;

@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Your Email Subject</title>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 <body>
     <div style="text-align: center;">
@@ -9,13 +11,15 @@
         
     </div>
     
-    total order = {{$ticket}} 
-    {{-- <svg id="barcode"></svg> --}}
+    Nama : {{$ticket->name}} 
+    Kategori : {{$ticket->name}} 
+    Jumlah Tiket : {{$ticket->qty}} 
+    <svg id="barcode"></svg>
 
 
 </body>
 
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="{{ asset('assets/plugin/barcodegen/JsBarcode.all.min.js') }}"></script>
 <script>
     $(function() {
@@ -28,5 +32,5 @@
             displayValue: true
         });
     })
-</script> --}}
+</script>
 </html>
