@@ -308,11 +308,10 @@ class TicketController extends Controller
 
     public function verify(Request $request)
     {
-        // $ticket = Ticket::where('bar_code', $request->barcode)->first();
-        $ticket = Ticket::where('id', 90)->first();
+        $ticket = Ticket::where('bar_code', $request->barcode)->first();
         if($ticket){
-            $ticket->status = 'scanned';
-            $ticket->save();
+            // $ticket->status = 'scanned';
+            // $ticket->save();
             return response()->json(['valid' => true, 'data' => $ticket]);
         }   
         return response()->json(['valid' => false]);
