@@ -9,13 +9,13 @@
         
     </div>
     
-    total order = {{$ticket->qty}} 
-    <svg id="barcode"></svg>
+    total order = {{$ticket}} 
+    {{-- <svg id="barcode"></svg> --}}
 
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="{{ asset('assets/plugin/barcodegen/JsBarcode.all.min.js') }}"></script>
 <script>
     $(function() {
@@ -28,5 +28,5 @@
             displayValue: true
         });
     })
-</script>
+</script> --}}
 </html>
