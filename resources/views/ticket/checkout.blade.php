@@ -107,10 +107,6 @@ const ticket_id = '{{Crypt::encrypt($ticket->id)}}'
           /* You may add your own implementation here */
           window.location.href = 'https://ticket.serasacreative.com/ticket/invoice/'+result.order_id
         },
-        onPending: function(result){
-            /* You may add your own implementation here */
-            window.location.href = 'https://ticket.serasacreative.com/ticket/checkout/'+ticket_id
-        },
         onError: function(result){
           /* You may add your own implementation here */
           alert("Pembayaran Gagal!"); 
