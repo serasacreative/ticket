@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\Log;
 use Exception;
-use Illuminate\Support\Facades\Session;
+
+
 
 class TicketController extends Controller
 {
@@ -121,14 +122,12 @@ class TicketController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        Session::put('snapToken', $snapToken);
-        Session::put('ticketId', $ticket->id);
-        $currentDate = Carbon::now()->format('M d, Y');
-        Session::put('currentDate', $currentDate);
     } catch (\Throwable $e) {
         // Handle any exceptions that occur during the API call
         return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
     }
+
+    $currentDate = Carbon::now()->format('M d, Y');
 
         return view('ticket.checkout', compact('snapToken', 'ticket', 'currentDate'));
     }
@@ -192,14 +191,11 @@ class TicketController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        Session::put('snapToken', $snapToken);
-        Session::put('ticketId', $ticket->id);
-        $currentDate = Carbon::now()->format('M d, Y');
-        Session::put('currentDate', $currentDate);
     } catch (\Throwable $e) {
         // Handle any exceptions that occur during the API call
         return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
     }
+    $currentDate = Carbon::now()->format('M d, Y');
 
         return view('ticket.checkout', compact('snapToken', 'ticket', 'currentDate'));
     }
@@ -243,16 +239,58 @@ class TicketController extends Controller
 
     }
     public function checkout(Request $request){
-        if(!Session::has('snapToken')){
+        $ticket_id = $request->input('order_id');;
+        $ticket_old = Ticket::where('id',$ticket_id)->where('status', 'pending')->first();
+        if(!$ticket_old)
+        {
             return redirect()->route('ticket.index');
         }
-        $ticket_id = Session::get('ticketId');
-        $ticket = Ticket::find($ticket_id);
-        $snapToken = Session::get('snapToken');
-        $currentDate = Session::get('currentDate');
+
+        $ticket = new Ticket();
+        $ticket->name = $ticket_old->name;
+        $ticket->email = $ticket_old->email;
+        $ticket->phone = $ticket_old->phone;
+        $ticket->category = $ticket_old->category;
+        $ticket->status = 'pending';
+        $ticket->qty = $ticket_old->qty;
+        $ticket->price = $ticket_old->price;
+        $ticket->total_price = $ticket_old->total_price;
+        $ticket->created_at = Carbon::now();
+        $ticket->updated_at = Carbon::now();
+        $ticket->save();
+
+        //SAMPLE REQUEST START HERE
+        try {
+            // Set your Merchant Server Key
+            \Midtrans\Config::$serverKey = config('midtrans.server_key');
+            // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+            \Midtrans\Config::$isProduction = config('midtrans.is_production');
+            // Set sanitization on (default)
+            \Midtrans\Config::$isSanitized = true;
+            // Set 3DS transaction for credit card to true
+            \Midtrans\Config::$is3ds = true;
+    
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => $ticket->id,
+                    'gross_amount' => $ticket->total_price,
+                ),
+                'customer_details' => array(
+                    'first_name' => $ticket->name,
+                    'last_name' => '',
+                    'email' => $ticket->email,
+                    'phone' => $ticket->phone,
+                ),
+            );
+    
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+        } catch (\Throwable $e) {
+            // Handle any exceptions that occur during the API call
+            return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
+        }
         $currentDate = Carbon::now()->format('M d, Y');
     
-        return view('ticket.checkout', compact('snapToken', 'ticket', 'currentDate'));
+            return view('ticket.checkout', compact('snapToken', 'ticket', 'currentDate'));
 
     }
 
