@@ -32,11 +32,13 @@ class TicketController extends Controller
                 ->orWhere('status', 'scanned');
         })
         ->sum('qty');
-        $max_tickets = 3000;
+        $max_tickets = env('MAX_FESTIVAL_TICKET');
         if($tickets >= $max_tickets){
             return view('ticket.festival_soldout');
         }
-        return view('ticket.festival', compact('tickets'));
+        $price = env('FESTIVAL_TICKET_PRICE');
+        $is_presale = env('IS_PRESALE');
+        return view('ticket.festival', compact('price', 'is_presale'));
     }
 
     public function ticket_vip()
@@ -47,11 +49,13 @@ class TicketController extends Controller
                 ->orWhere('status', 'scanned');
         })
         ->sum('qty');
-        $max_tickets = 1;
+        $max_tickets = env('MAX_VIP_TICKET');
         if($tickets >= $max_tickets){
             return view('ticket.vip_soldout');
         }
-        return view('ticket.vip', compact('tickets'));
+        $price = env('VIP_TICKET_PRICE');
+        $is_presale = env('IS_PRESALE');
+        return view('ticket.vip', compact('price', 'is_presale'));
     }
 
     public function checkout_festival(Request $request)
@@ -65,7 +69,7 @@ class TicketController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $price = 100000;
+        $price = env('FESTIVAL_TICKET_PRICE');
         $ticket = new Ticket();
         $ticket->name = $request->name;
         $ticket->email = $request->email;
@@ -132,7 +136,7 @@ class TicketController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         // $price = 130000;
-        $price = 500;
+        $price = env('VIP_TICKET_PRICE');
         $ticket = new Ticket();
         $ticket->name = $request->name;
         $ticket->email = $request->email;
@@ -184,8 +188,9 @@ class TicketController extends Controller
         // Handle any exceptions that occur during the API call
         return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
     }
+    $currentDate = Carbon::now()->format('M d, Y');
 
-        return view('ticket.checkout', compact('snapToken', 'ticket'));
+        return view('ticket.checkout', compact('snapToken', 'ticket', 'currentDate'));
     }
 
     public function callback(Request $request)

@@ -7,10 +7,10 @@
         <div class="block-header py-lg-4 py-3">
             <div class="row g-3">
                 <div class="col-md-6 col-sm-12">
-                    <h2 class="m-0 fs-5"><a href="{{route('ticket.index')}}" class="btn btn-sm btn-link ps-0 btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Tickets</h2>
+                    <h2 class="m-0 fs-5"><a href="{{route('ticket.index')}}" class="btn btn-sm btn-link ps-0 btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Beranda</h2>
                     <ul class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('ticket.index')}}">Ticket</a></li>
-                        <li class="breadcrumb-item active">Ticket Festival</li>
+                        <li class="breadcrumb-item"><a href="{{route('ticket.index')}}">Beranda</a></li>
+                        <li class="breadcrumb-item active">Tiket Festival</li>
                     </ul>
                 </div>
             </div>
@@ -20,10 +20,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="card-title">Order Your Ticket</h6>
+                        <h6 class="card-title">TIKET FESTIVAL</h6>
                     </div>
                     <div class="card-body">
-                        <h1> Ticket List</h1>
                         <div class="row w-100 d-flex justify-content-evenly">
                             <div class="col-lg-4 col-md-12">
                                 <div class="card py-4 text-center">
@@ -32,10 +31,16 @@
                                         <h2 class="pricing-header">Festival</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
-                                            <li class="my-2"><i class="fa fa-calendar"></i> On 27 Aug 2023</li>
-                                            <li class="my-2"><i class="fa fa-clock-o">15:00 - 24:00 WIB</i></li>
+                                            <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
+                                            <li class="my-2"><i class="fa fa-clock-o"> 15:00 - 24:00 WIB</i></li>
                                         </ul>
-                                        <p class="fs-2">Rp 100.000</p>
+                                        <p class="fs-2">Rp 
+                                            @if($is_presale)
+                                            95.000 
+                                            @else 
+                                            100.000 
+                                            @endif   
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +54,7 @@
                                         @endif
                             
                                         <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
-                                        <h2 class="pricing-header"></h2>
+                                        <h2 class="pricing-header"> Lengkapi data anda !</h2>
                                         <form method="POST" action="{{route('ticket.checkout.festival')}}">
                                             @csrf
                                             <div class="modal-body">
@@ -58,6 +63,9 @@
                                                     <div class="col-md">
                                                         <label>Email :</label>
                                                         <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email" required name="email" value="{{ old('email') }}">
+                                                        <div id="emailHelp" class="form-text">
+                                                            Tiket akan dikirim ke email ada !
+                                                          </div>
                                                         @error('email')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -66,8 +74,8 @@
                                                 {{-- Name --}}
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
-                                                        <label>Name :</label>
-                                                        <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Name" required name="name" value="{{ old('name') }}">
+                                                        <label>Nama :</label>
+                                                        <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Nama" required name="name" value="{{ old('name') }}">
                                                         @error('name')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -76,8 +84,8 @@
                                                 {{-- Phone --}}
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
-                                                        <label>Phone :</label>
-                                                        <input class="form-control @error('phone') is-invalid @enderror" type="number" placeholder="Phone" required name="phone" value="{{ old('phone') }}">
+                                                        <label>No HP :</label>
+                                                        <input class="form-control @error('phone') is-invalid @enderror" type="number" placeholder="No HP" required name="phone" value="{{ old('phone') }}">
                                                         @error('phone')
                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                         @enderror
@@ -86,10 +94,10 @@
                                                 {{-- QTY --}}
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
-                                                        <label>Quantity :</label>
-                                                        <input class="form-control @error('qty') is-invalid @enderror" id="qty" type="number" placeholder="Quantity" required name="qty" id="qty" max="10" min="1" step="1" value="{{ old('qty') }}">
+                                                        <label>Jumlah Tiket :</label>
+                                                        <input class="form-control @error('qty') is-invalid @enderror" id="qty" type="number" placeholder="Jumlah Tiket" required name="qty" id="qty" max="10" min="1" step="1" value="{{ old('qty') }}">
                                                         <div id="qtyHelp" class="form-text">
-                                                            Max 10 Tickets.
+                                                            Maks 10 Tiket.
                                                           </div>
                                                         @error('qty')
                                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -99,14 +107,14 @@
                                                 {{-- QTY --}}
                                                 <div class="row align-items-end my-2 ">
                                                     <div class="col-md">
-                                                        <label>Total Price :</label>
-                                                        <input class="form-control" type="text" placeholder="Total Price" disabled id="total_price" value="{{(old('qty'))?old('qty')*100000:''}}">
+                                                        <label>Harga Total :</label>
+                                                        <input class="form-control" type="text" placeholder="Harga Total" disabled id="total_price" value="{{(old('qty'))?old('qty')*100000:''}}">
                                                     </div>
                                                 </div>
 
                                             </div>
                                             <div class="modal-footer mt-3">
-                                                <button type="submit" class="btn btn-primary">Buy</button>
+                                                <button type="submit" class="btn btn-primary">Beli</button>
                                             </div>
                                         </form>
                                     </div>
@@ -124,9 +132,9 @@
 
 @section('js')
     <script>
+        const price = {{$price}};
         $("#qty").keyup((e)=>{
             let qty = e.target.value;
-            let price = 100000;
             let total_price = qty*price;
             $("#total_price").val(total_price);
         })

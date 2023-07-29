@@ -27,11 +27,25 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="card-title">Order Your Tickets</h6>
+                        <h6 class="card-title">Checkout Tiket anda !</h6>
                     </div>
                     
                     <div class="card-body">
-                        <h3>Invoice Details: <strong class="text-primary">#A0089</strong></h3>
+                        <h3>Invoice Details:</h3>
+                        <div class="w-100 row">
+                            <div class="col-md-6 col-sm-6">
+                                <address>
+                                    Nama : {{$ticket->name}}<br>
+                                    <strong>Email : {{$ticket->email}}</strong><br>
+                                    <abbr title="Phone">No HP : </abbr> {{$ticket->phone}} 
+                                </address>
+                            </div>
+                            <div class="col-md-6 col-sm-6 text-end">
+                                <p class="mb-0"><strong>Order Tanggal : </strong> {{$currentDate}}</p>
+                                <p class="mb-0"><strong>Order Status: </strong> <span class="badge bg-warning">{{$ticket->status}}</span></p>
+                                <p><strong>Order ID: </strong> {{$ticket->id}}</p>
+                            </div>
+                        </div>
                         <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -43,10 +57,10 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Category</th>
-                                                        <th>Qty</th>
-                                                        <th class="hidden-sm-down">Price</th>
-                                                        <th>Total Price</th>
+                                                        <th>Kategori</th>
+                                                        <th>Jumlah Tiket</th>
+                                                        <th class="hidden-sm-down">Harga Satuan</th>
+                                                        <th>Harga Total</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -63,6 +77,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h5>Note</h5>
+                                        <p>Tiket akan dikirim ke email anda.</p>
                                         <p>Tukarkan tiket untuk mendapatkan mercandise pada tanggal 27 Agustus 2023.</p>
                                     </div>
                                     <div class="col-md-12 text-end">
@@ -89,19 +104,19 @@
       window.snap.pay('{{$snapToken}}', {
         onSuccess: function(result){
           /* You may add your own implementation here */
-          alert("payment success!"); console.log(result);
+          window.location.href = 'https://ticket.serasacreative.com/'+result.order_id
         },
         onPending: function(result){
           /* You may add your own implementation here */
-          alert("wating your payment!"); console.log(result);
+          alert("Menunggu Pembayaran!"); 
         },
         onError: function(result){
           /* You may add your own implementation here */
-          alert("payment failed!"); console.log(result);
+          alert("Pembayaran Gagal!"); 
         },
         onClose: function(){
           /* You may add your own implementation here */
-          alert('you closed the popup without finishing the payment');
+          alert('Anda menutup pembayaran tanpa menyelesaikannya!');
         }
       })
     });

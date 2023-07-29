@@ -65,11 +65,17 @@
                                         <h2 class="pricing-header">VIP</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
-                                            <li class="my-2"><i class="fa fa-calendar"></i> On 27 Aug 2023</li>
-                                            <li class="my-2"><i class="fa fa-clock-o">15:00 - 24:00 WIB</i></li>
+                                            <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
+                                            <li class="my-2"><i class="fa fa-clock-o"> 15:00 - 24:00 WIB</i></li>
                                         </ul>
-                                        <p class="fs-2">Rp 130.000</p>
-                                        <a href="{{route('ticket.vip')}}" class="btn btn-outline-primary">Buy</a>
+                                        <p class="fs-2">Rp 
+                                            @if($is_presale)
+                                            120.000 
+                                            @else 
+                                            130.000    
+                                            @endif
+                                        </p>
+                                        <a href="{{route('ticket.vip')}}" class="btn btn-outline-primary">Beli</a>
                                     </div>
                                 </div>
                             </div>
@@ -80,11 +86,17 @@
                                         <h2 class="pricing-header">Festival</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
-                                            <li class="my-2"><i class="fa fa-calendar"></i> On 27 Aug 2023</li>
-                                            <li class="my-2"><i class="fa fa-clock-o">15:00 - 24:00 WIB</i></li>
+                                            <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
+                                            <li class="my-2"><i class="fa fa-clock-o"> 15:00 - 24:00 WIB</i></li>
                                         </ul>
-                                        <p class="fs-2">Rp 100.000</p>
-                                        <a href="{{route('ticket.festival')}}" class="btn btn-outline-primary">Buy</a>
+                                        <p class="fs-2">Rp 
+                                            @if($is_presale)
+                                            95.000 
+                                            @else 
+                                            100.000 
+                                            @endif   
+                                        </p>
+                                        <a href="{{route('ticket.festival')}}" class="btn btn-outline-primary">Beli</a>
                                     </div>
                                 </div>
                             </div>
