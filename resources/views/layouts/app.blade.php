@@ -9,7 +9,7 @@
     <meta name="description" content="Lucid HR & Project Admin Dashboard Template with Bootstrap 5x">
     <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{asset('Logo-Mahafest.png')}}.png" type="image/png">
 
     <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}" />
