@@ -32,7 +32,7 @@ class MyCustomEmail extends Mailable implements ShouldQueue
     public function build()
     {
         $order_id = $this->order_id;
-        $ticket = Ticket::find($order_id);
+        $ticket = Ticket::find($order_id) ;
 
         // Generate the barcode image
         $barcode = new DNS1D();
