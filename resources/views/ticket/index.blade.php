@@ -41,7 +41,7 @@
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
                                         <h2 class="pricing-header">
                                             @if($is_presale)
-                                            <span class="text-info">PRE-SALE</span>
+                                            <span class="text-info h5">PRE-SALE</span>
                                             @endif
                                              VIP</h2>
                                         <ul class="pricing-features list-unstyled">
@@ -66,7 +66,7 @@
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
                                         <h2 class="pricing-header">
                                             @if($is_presale)
-                                            <span class="text-info">PRE-SALE</span>
+                                            <span class="text-info h5">PRE-SALE</span>
                                             @endif
                                             Festival</h2>
                                         <ul class="pricing-features list-unstyled">
