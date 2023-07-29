@@ -11,18 +11,6 @@
         height: auto;
     }
 
-    .hero-content {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        transform: translateY(-50%);
-        text-align: center;
-        color: #fff;
-        padding: 30px; /* Adjust the padding as needed */
-        background-color: rgba(0, 0, 0, 0.6); /* Add a semi-transparent background */
-    }
-
     .hero-content h1 {
         font-size: 3rem;
         margin-bottom: 20px;
@@ -47,10 +35,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row w-100 d-flex justify-content-evenly">
-                            <div class="col-lg-4 col-md-12">
+                            <div class="col-lg-4 col-md-5">
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
-                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
+                                        <img src="{{asset('Logo-Mahafest.png')}}" alt="" class="pricing-img">
                                         <h2 class="pricing-header">VIP</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
@@ -68,10 +56,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-12">
+                            <div class="col-lg-4 col-md-5">
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
-                                        <img src="{{asset('assets/images/paper-plane.png')}}" alt="" class="pricing-img">
+                                        <img src="{{asset('Logo-Mahafest.png')}}" alt="" class="pricing-img">
                                         <h2 class="pricing-header">Festival</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
