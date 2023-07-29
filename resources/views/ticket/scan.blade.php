@@ -1,19 +1,5 @@
 @extends('layouts.app')
 
-@section('css')
-    <script src="{{ asset('quagga.min.js') }}"></script>
-    <style>
-        #barcode-scanner {
-            width: 100%;
-            height: 300px;
-            border: 2px solid #ccc;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-        }
-    </style>
-@endsection
-
 @section('content')
     <div class="container-fluid">
         <!-- Your existing content here -->
