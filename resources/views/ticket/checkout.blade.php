@@ -17,7 +17,7 @@
                     <h2 class="m-0 fs-5"><a href="{{route('ticket.index')}}" class="btn btn-sm btn-link ps-0 btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Beranda</h2>
                     <ul class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('ticket.index')}}">Beranda</a></li>
-                        <li class="breadcrumb-item active">Ticket Chcckout</li>
+                        <li class="breadcrumb-item active">Ticket Checkout</li>
                     </ul>
                 </div>
             </div>
