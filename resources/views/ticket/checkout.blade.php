@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6 text-end">
                                 <p class="mb-0"><strong>Order Tanggal : </strong> {{$currentDate}}</p>
-                                <p class="mb-0"><strong>Order Status: </strong> <span class="badge bg-success">{{$ticket->status}}</span></p>
+                                <p class="mb-0"><strong>Order Status: </strong> <span class="badge bg-warning"> {{strtoupper($ticket->status)}} </span></p>
                                 <p><strong>Order ID: </strong> {{$ticket->id}}</p>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                                     <div class="col-md-6">
                                         <h5>Note</h5>
                                         <p>Tiket yang akan dikirim email.</p>
-                                        <p>Akan ditukarkan merchandise dan tiket gelang pada tgl 27 Agustus.</p>
+                                        <p>Akan ditukarkan merchandise dan tiket gelang pada tgl 27.</p>
                                     </div>
                                     <div class="col-md-12 text-end">
                                         <button class="btn btn-primary" id="pay-button">Checkout</button>
