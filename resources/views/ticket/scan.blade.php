@@ -25,39 +25,46 @@
 @endsection
 @section('js')
 <script>
-        // Function to handle the AJAX request
-        function scanning(barcode) {
-            // Make an AJAX request to the Laravel route using jQuery
-            console.log(barcode)
-            // $.ajax({
-            //     url: '/scan-barcode',
-            //     method: 'POST',
-            //     data: { barcode: barcode },
-            //     headers: {
-            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            //     },
-            //     success: function(response) {
-            //         // Show SweetAlert with the response message
-            //         Swal.fire({
-            //             title: 'Success',
-            //             text: response.message,
-            //             icon: 'success',
-            //         }).then(() => {
-            //             // After clicking 'OK', refocus on the barcode input field for automatic scanning
-            //             document.getElementById('barcodeInput').focus();
-            //         });
-            //     },
-            //     error: function(error) {
-            //         // Show SweetAlert with error message
-            //         Swal.fire({
-            //             title: 'Error',
-            //             text: 'Error processing barcode data',
-            //             icon: 'error',
-            //         });
-            //     }
-            // });
-        }
+    // Function to handle the AJAX request
+    function scanning(barcode) {
+        // Assuming the scanner appends a newline character at the end of the scan
+        if (barcode.endsWith('\n')) {
+            // Remove the newline character
+            const trimmedBarcode = barcode.trim();
 
+            // Make an AJAX request to the Laravel route using jQuery
+            $.ajax({
+                url: '/scan-barcode',
+                method: 'POST',
+                data: { barcode: trimmedBarcode },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    // Show SweetAlert with the response message
+                    Swal.fire({
+                        title: 'Success',
+                        text: response.message,
+                        icon: 'success',
+                    }).then(() => {
+                        // After clicking 'OK', refocus on the barcode input field for automatic scanning
+                        document.getElementById('barcodeInput').focus();
+                    });
+                },
+                error: function(error) {
+                    // Show SweetAlert with error message
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Error processing barcode data',
+                        icon: 'error',
+                    });
+                }
+            });
+
+            // Clear the input field after processing
+            document.getElementById('barcodeInput').value = '';
+        }
+    }
 </script>
 
 @endsection
