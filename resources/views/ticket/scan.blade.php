@@ -25,7 +25,6 @@
 @endsection
 @section('js')
 <script>
-    $(document).ready(function() {
         // Function to handle the AJAX request
         function scanning(barcode) {
             // Make an AJAX request to the Laravel route using jQuery
@@ -56,7 +55,6 @@
             });
         }
 
-    });
 </script>
 
 @endsection
