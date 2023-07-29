@@ -39,7 +39,7 @@
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
-                                        <h2 class="pricing-header">
+                                        <h2 class="pricing-header text-success">
                                             @if($is_presale)
                                             <span class="text-info h5">PRE-SALE</span>
                                             @endif
@@ -67,7 +67,7 @@
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
-                                        <h2 class="pricing-header">
+                                        <h2 class="pricing-header text-success">
                                             @if($is_presale)
                                             <span class="text-info h5">PRE-SALE</span>
                                             @endif
@@ -79,7 +79,7 @@
                                         </ul>
 
                                         @if($is_presale)
-                                        <p class="fs-1"><del>Rp 130.000</del></p>
+                                        <p class="fs-1"><del>Rp 100.000</del></p>
                                         @endif
                                         <p class="fs-2">Rp 
                                             @if($is_presale)
