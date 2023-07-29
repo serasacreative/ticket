@@ -141,10 +141,11 @@
         $("#qty").keyup((e)=>{
             let qty = e.target.value;
             let total_price = qty*price;
-            var formattedTotalPrice = total_price.toLocaleString(undefined, {
-                useGrouping: true,
-                grouping: "."
-            });
+            
+            // Create a NumberFormat instance with 'de-DE' locale
+            var formatter = new Intl.NumberFormat('de-DE');
+            var formattedTotalPrice = formatter.format(total_price);
+            
             $("#total_price").val('RP '+formattedTotalPrice);
         })
     </script>

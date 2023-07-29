@@ -100,22 +100,16 @@
 // Get the numeric value from the element (remove "RP " from the text)
 var ticketPrice = parseFloat($("#ticket_price").text());
 
-// Convert the numeric value to a string with period as the thousand separator
-var formattedTicketPrice = ticketPrice.toLocaleString(undefined, {
-  useGrouping: true,
-  grouping: "."
-});
+// Create a NumberFormat instance with 'de-DE' locale
+var formatter = new Intl.NumberFormat('de-DE');
+var formattedTicketPrice = formatter.format(ticketPrice);
 
 $("#ticket_price").text("RP " + formattedTicketPrice);
 
 
 var totalPrice = parseFloat($("#total_price").text());
 
-// Convert the numeric value to a string with period as the thousand separator
-var formattedTotalPrice = totalPrice.toLocaleString(undefined, {
-    useGrouping: true,
-    grouping: "."
-});
+var formattedTotalPrice = formatter.format(totalPrice);
 
 $("#total_price").text("RP " + formattedTotalPrice);
 
