@@ -78,7 +78,7 @@
                                     <div class="col-md-6">
                                         <h5>Note</h5>
                                         <p>Tiket yang akan dikirim email.</p>
-                                        <p>Akan ditukarkan merchandise dan tiket gelang pada tgl 27.</p>
+                                        <p>Informasi penukaran ke tiket gelang + Merchandise tgl 26 - 27 Agustus 2023.</p>
                                     </div>
                                     <div class="col-md-12 text-end">
                                         <button class="btn btn-primary" id="pay-button">Checkout</button>

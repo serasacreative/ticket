@@ -50,13 +50,13 @@
                                             <li class="my-2"><i class="fa fa-clock-o"> 15:00 - 24:00 WIB</i></li>
                                         </ul>
                                         @if($is_presale)
-                                        <p class="fs-1"><del>Rp 130.000</del></p>
+                                        <p class="fs-1"><del>Rp 150.000</del></p>
                                         @endif
                                         <p class="fs-2">Rp 
                                             @if($is_presale)
-                                            120.000 
+                                            130.000 
                                             @else 
-                                            130.000    
+                                            150.000    
                                             @endif
                                         </p>
                                         <a href="{{route('ticket.vip')}}" class="btn btn-outline-primary">Beli</a>
@@ -83,9 +83,9 @@
                                         @endif
                                         <p class="fs-2">Rp 
                                             @if($is_presale)
-                                            95.000 
-                                            @else 
                                             100.000 
+                                            @else 
+                                            110.000 
                                             @endif   
                                         </p>
                                         <a href="{{route('ticket.festival')}}" class="btn btn-outline-primary">Beli</a>

@@ -40,9 +40,9 @@
                                         @endif
                                         <p class="fs-2">Rp 
                                             @if($is_presale)
-                                            95.000 
-                                            @else 
                                             100.000 
+                                            @else 
+                                            110.000 
                                             @endif   
                                         </p>
                                     </div>

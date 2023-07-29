@@ -36,13 +36,13 @@
                                         </ul>
 
                                         @if($is_presale)
-                                        <p class="fs-1"><del>Rp 130.000</del></p>
+                                        <p class="fs-1"><del>Rp 150.000</del></p>
                                         @endif
                                         <p class="fs-2">Rp 
                                             @if($is_presale)
-                                            120.000 
-                                            @else 
                                             130.000 
+                                            @else 
+                                            150.000 
                                             @endif
                                            </p>
                                     </div>
