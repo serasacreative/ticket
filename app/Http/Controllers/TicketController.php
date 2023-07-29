@@ -243,6 +243,9 @@ class TicketController extends Controller
 
     }
     public function checkout(Request $request){
+        if(!Session::has('snapToken')){
+            return redirect()->route('ticket.index');
+        }
         $ticket_id = Session::get('ticketId');
         $ticket = Ticket::find($ticket_id);
         $snapToken = Session::get('snapToken');
