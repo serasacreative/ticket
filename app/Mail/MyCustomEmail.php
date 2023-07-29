@@ -3,12 +3,12 @@
 namespace App\Mail;
 
 use App\Models\Ticket;
+use Milon\Barcode\DNS1D;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Milon\Barcode\DNS1D;
 
 class MyCustomEmail extends Mailable implements ShouldQueue
 {
@@ -32,7 +32,7 @@ class MyCustomEmail extends Mailable implements ShouldQueue
     public function build()
     {
         $order_id = $this->order_id;
-        $ticket = Ticket::find($order_id) ;
+        $ticket = Ticket::find($order_id);
 
         // Generate the barcode image
         $barcode = new DNS1D();

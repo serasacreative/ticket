@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Log;
+use Exception;
+
+
 
 class TicketController extends Controller
 {
@@ -200,18 +204,30 @@ class TicketController extends Controller
     {
         $serverKey = config('midtrans.server_key');
         $hashed = hash('sha512', $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
-
-        if($hashed == $request->signature_key){
-            if($request->transaction_status == 'capture' || $request->transaction_status == 'settlement'){
+    
+        if ($hashed === $request->signature_key) {
+            if ($request->transaction_status === 'capture' || $request->transaction_status === 'settlement') {
                 $ticket = Ticket::find($request->order_id);
-                $ticket->status = 'paid';
-                $ticket->bar_code = str_pad($ticket->id, 5, "0", STR_PAD_LEFT). Carbon::parse($ticket->created_at)->format("Ymd"). strtoupper(Str::random(4));
-                $ticket->save();
-
-                $recipientEmail = $ticket->email;
-                Mail::to($recipientEmail)->send(new MyCustomEmail($request->order_id));
+                if ($ticket) {
+                    $ticket->status = 'paid';
+                    $ticket->bar_code = str_pad($ticket->id, 5, "0", STR_PAD_LEFT). Carbon::parse($ticket->created_at)->format("Ymd"). strtoupper(Str::random(4));
+                    $ticket->save();
+    
+                    try {
+                        // Send email with barcode
+                        $recipientEmail = $ticket->email;
+                        Mail::to($recipientEmail)->send(new MyCustomEmail($request->order_id));
+                    } catch (Exception $e) {
+                        // Log the error message
+                        Log::error('Error sending email: ' . $e->getMessage());
+                    }
+                } else {
+                    // Log ticket not found
+                    Log::error('Ticket with ID ' . $request->order_id . ' not found.');
+                }
             }
         }
+    
         return 'salah';
     }
 
