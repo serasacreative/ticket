@@ -308,7 +308,6 @@ class TicketController extends Controller
 
     public function verify(Request $request)
     {
-        return $request->all();
         $ticket = Ticket::where('bar_code', $request->barcode)->first();
         if($ticket){
             // $ticket->status = 'scanned';
