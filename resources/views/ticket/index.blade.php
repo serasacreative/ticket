@@ -38,18 +38,7 @@
 
 @section('content')
     <div class="hero-section">
-        <img src="{{ asset('assets/hero-image.jpeg') }}" alt="Hero Image" class="img-fluid hero-image">
-        <div class="hero-content">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 text-center">
-                        <h1>Welcome to Our Event</h1>
-                        <p>Join us for an unforgettable experience!</p>
-                        <!-- Add any additional content you want to display in the top section -->
-                    </div>
-                </div>
-            </div>
-        </div>
+        <img src="{{ asset('hero-image.jpeg') }}" alt="Hero Image" class="img-fluid hero-image">
     </div>
     <div class="container-fluid">
 
