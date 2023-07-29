@@ -68,8 +68,8 @@
                                                         <td>1</td>
                                                         <td>{{$ticket->category}}</td>
                                                         <td>{{$ticket->qty}}</td>
-                                                        <td class="hidden-sm-down">RP {{$ticket->price}}</td>
-                                                        <td>Rp {{$ticket->total_price}}</td>
+                                                        <td class="hidden-sm-down" id="ticket_price">{{$ticket->price}}</td>
+                                                        <td id="total_price">{{$ticket->total_price}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -97,6 +97,30 @@
 
 @section('js')
 <script type="text/javascript">
+// Get the numeric value from the element (remove "RP " from the text)
+var ticketPrice = parseFloat($("#ticket_price").text());
+
+// Convert the numeric value to a string with period as the thousand separator
+var formattedTicketPrice = ticketPrice.toLocaleString(undefined, {
+  useGrouping: true,
+  grouping: "."
+});
+
+$("#ticket_price").text("RP " + formattedTicketPrice);
+
+
+var totalPrice = parseFloat($("#total_price").text());
+
+// Convert the numeric value to a string with period as the thousand separator
+var formattedTotalPrice = totalPrice.toLocaleString(undefined, {
+    useGrouping: true,
+    grouping: "."
+});
+
+$("#total_price").text("RP " + formattedTotalPrice);
+
+// Update the content of the <td> with the formatted value
+$("#ticket_price").text("RP " + formattedTicketPrice);
 const ticket_id = '{{Crypt::encrypt($ticket->id)}}'
     // For example trigger on button clicked, or any time you need
     var payButton = document.getElementById('pay-button');

@@ -141,7 +141,11 @@
         $("#qty").keyup((e)=>{
             let qty = e.target.value;
             let total_price = qty*price;
-            $("#total_price").val(total_price);
+            var formattedTotalPrice = total_price.toLocaleString("en-US", {
+                useGrouping: true,
+                grouping: "."
+            });
+            $("#total_price").val(formattedTotalPrice);
         })
     </script>
     
