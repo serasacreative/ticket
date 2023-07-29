@@ -2,11 +2,6 @@
 @section('css')
     
 <style>
-    @page {
-        size: auto;
-        margin: 0mm;
-    }
-
     body {
         font-family: Arial, sans-serif;
         background-color: #f0f0f0;
@@ -18,7 +13,6 @@
         align-items: center;
         margin: 50px auto;
         padding: 20px;
-        border: 2px solid #000;
         background-color: #fff;
         width: 300px;
     }
@@ -38,7 +32,7 @@
         padding: 10px;
         background-color: #000;
         color: #fff;
-        border-radius: 0 0 8px 8px;
+        border-radius: 8px;
         font-size: 20px;
         font-weight: bold;
     }
@@ -50,11 +44,11 @@
     <!-- Replace "path/to/your/image.jpg" with the actual path to your image -->
     <img class="ticket-image" src="{{ asset('hero-image.jpeg') }}" alt="Ticket Image">
     
-    <div class="ticket-barcode">
+    <div class="ticket-barcode my-2">
         <svg id="barcode"></svg>
     </div>
 
-    <p>Total Tiket: <p class="h3 text-primary">{{$ticket->qty}}<p></p>
+    <p>Total Tiket: <span class="h3 text-primary">{{$ticket->qty}}</span></p>
 </div>
 
 @endsection
