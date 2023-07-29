@@ -55,7 +55,7 @@
         <svg id="barcode"></svg>
     </div>
 
-    <p class="text-center">Total Tiket: <span class="h3 text-primary">{{$ticket->qty}}</span></p>
+    <p class="text-center h4">Total Tiket: <span class="h2 text-primary">{{$ticket->qty}}</span></p>
     <h4 class="text-dark">TUNJUKKAN BARCODE SAAT PENUKARAN TIKET!</h4>
 </div>
 
