@@ -14,7 +14,7 @@
         margin: 50px auto;
         padding: 20px;
         background-color: #fff;
-        width: 300px;
+        width: 50%;
     }
 
     .ticket-image {
@@ -30,17 +30,22 @@
         align-items: center;
         justify-content: center;
         padding: 10px;
-        background-color: #000;
         color: #fff;
-        border-radius: 8px;
         font-size: 20px;
         font-weight: bold;
     }
+    @media (max-width: 480px) {
+            .ticket-container {
+                width: 90%;
+            }
+        }
 </style>
 @endsection
 
 @section('content')
 <div class="ticket-container">
+    <h1 style="color:{{($ticket->category == 'vip')?'#007aff': 'rgba(13, 202, 240, 1)'}}">
+
     <!-- Replace "path/to/your/image.jpg" with the actual path to your image -->
     <img class="ticket-image" src="{{ asset('hero-image.jpeg') }}" alt="Ticket Image">
     
@@ -49,6 +54,7 @@
     </div>
 
     <p>Total Tiket: <span class="h3 text-primary">{{$ticket->qty}}</span></p>
+    <h4 class="text-dark">TUNJUKKAN BARCODE SAAT PENUKARAN TIKET!</h4>
 </div>
 
 @endsection
