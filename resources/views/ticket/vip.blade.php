@@ -58,7 +58,7 @@
                                         @endif
                             
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
-                                        <h2 class="pricing-header"></h2>
+                                        <h2 class="pricing-header"> Lengkapi data anda !</h2>
 
                                         <form method="POST" action="{{route('ticket.checkout.vip')}}">
                                             @csrf
