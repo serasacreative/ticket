@@ -212,6 +212,14 @@ class TicketController extends Controller
         }
     }
 
+    public function invoice($id){
+        $ticket = Ticket::find($id);
+
+        $currentDate = Carbon::now()->format('M d, Y');
+        return view('ticket.invoice', compact('ticket', 'currentDate'));
+
+    }
+
     public function generate($id){
         $id = Crypt::decrypt($id);
 
