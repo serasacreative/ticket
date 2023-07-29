@@ -18,7 +18,7 @@
                     <li class="list-group-item">Jumlah Tiket : 3</li>
                 </ul>
             </div>
-            <div class="bg-light">Dapatkan tiket anda dengan klik <a href="https://ticket.serasacreative.com/ticket/generate/" class="btn btn-primary" > Tiket Saya </a></div>
+            <div ><p class="bg-light">Dapatkan tiket anda dengan klik</p> <a href="https://ticket.serasacreative.com/ticket/generate/" class="btn btn-primary" type="button"> Tiket Saya </a></div>
         </div>
 </body>
 
