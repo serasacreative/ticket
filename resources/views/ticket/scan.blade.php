@@ -46,6 +46,7 @@ function scanning(barcode) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(response) {
+                console.log(response)
                 // Show SweetAlert with the response message
                 Swal.fire({
                     title: 'Success',
