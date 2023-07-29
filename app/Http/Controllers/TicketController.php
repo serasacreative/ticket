@@ -21,7 +21,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('ticket.index');
+        $is_presale = env('IS_PRESALE');
+        return view('ticket.index', compact('is_presale'));
     }
 
     public function ticket_festival()

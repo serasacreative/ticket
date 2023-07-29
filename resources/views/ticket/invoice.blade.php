@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-@section('css')
- <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
- <script type="text/javascript"
- src="{{config('midtrans.snap_url')}}"
- data-client-key="{{config('midtrans.client_key')}}"></script>
-    
-@endsection
-
 @section('content')
     <div class="container-fluid">
 
@@ -17,7 +9,7 @@
                     <h2 class="m-0 fs-5"><a href="{{route('ticket.index')}}" class="btn btn-sm btn-link ps-0 btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Tickets</h2>
                     <ul class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{route('ticket.index')}}">Ticket</a></li>
-                        <li class="breadcrumb-item active">Ticket Chcckout</li>
+                        <li class="breadcrumb-item active">Ticket Invoice</li>
                     </ul>
                 </div>
             </div>
@@ -26,9 +18,6 @@
         <div class="row clearfix">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h6 class="card-title">Checkout Tiket anda !</h6>
-                    </div>
                     
                     <div class="card-body">
                         <h3>Invoice Details:</h3>
@@ -80,9 +69,6 @@
                                         <p>Tiket akan dikirim ke email anda.</p>
                                         <p>Tukarkan tiket untuk mendapatkan mercandise pada tanggal 27 Agustus 2023.</p>
                                     </div>
-                                    <div class="col-md-12 text-end">
-                                        <button class="btn btn-primary" id="pay-button">Checkout</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -96,29 +82,4 @@
 @endsection
 
 @section('js')
-<script type="text/javascript">
-    // For example trigger on button clicked, or any time you need
-    var payButton = document.getElementById('pay-button');
-    payButton.addEventListener('click', function () {
-      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-      window.snap.pay('{{$snapToken}}', {
-        onSuccess: function(result){
-          /* You may add your own implementation here */
-          window.location.href = 'https://ticket.serasacreative.com/ticket/invoice/'+result.order_id
-        },
-        onPending: function(result){
-          /* You may add your own implementation here */
-          alert("Menunggu Pembayaran!"); 
-        },
-        onError: function(result){
-          /* You may add your own implementation here */
-          alert("Pembayaran Gagal!"); 
-        },
-        onClose: function(){
-          /* You may add your own implementation here */
-          alert('Anda menutup pembayaran tanpa menyelesaikannya!');
-        }
-      })
-    });
-  </script>
 @endsection
