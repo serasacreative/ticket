@@ -18,7 +18,7 @@
 
         <div class="row clearfix">
             <div class="col-12">
-                <div class="card">
+                <div class="card border border-5 border-success">
                     <div class="card-header">
                         <h6 class="card-title">TIKET FESTIVAL</h6>
                     </div>

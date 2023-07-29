@@ -24,8 +24,8 @@
                     </div>
                     <div class="card-body">
                         <div class="row w-100 d-flex justify-content-evenly">
-                            <div class="col-lg-3 col-md-12">
-                                <div class="card py-4 text-center">
+                            <div class="col-lg-3 col-md-12 mb-3">
+                                <div class="card py-4 text-center" style="border-color: #007aff; border-width: 5px;">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
                                         <h2 class="pricing-header">VIP</h2>
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-12">
-                                <div class="card py-4 text-center">
+                                <div class="card py-4 text-center" style="border-color: #007aff; border-width: 5px;">
                                     <div class="card-body">
                                         @if (session('error'))
                                         <div class="alert alert-danger">

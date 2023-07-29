@@ -18,7 +18,7 @@
 
         <div class="row clearfix">
             <div class="col-12">
-                <div class="card">
+                <div class="card" style="border-color: #007aff; border-width: 5px;">
                     <div class="card-header">
                         <h6 class="card-title">TIKET VIP</h6>
                     </div>
