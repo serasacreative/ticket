@@ -3,12 +3,13 @@
 namespace App\Mail;
 
 use App\Models\Ticket;
-use Milon\Barcode\DNS1D;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Milon\Barcode\DNS1D;
+use Exception;
 
 class MyCustomEmail extends Mailable implements ShouldQueue
 {
@@ -39,14 +40,21 @@ class MyCustomEmail extends Mailable implements ShouldQueue
         $barcode->setStorPath(public_path('temp')); // Set the temporary storage path
         $barcodeImage = $barcode->getBarcodePNG($ticket->bar_code, 'C128');
 
+        // Save the barcode image temporarily in the public directory
+        $tempImagePath = public_path('temp/barcode_'.$ticket->id.'.png');
+        file_put_contents($tempImagePath, $barcodeImage);
+
         return $this->view('emails.my_custom_email')
             ->subject('Ticket Notification')
-            ->attachData($barcodeImage, 'barcode.png', [
+            ->attach($tempImagePath, [
+                'as' => 'barcode.png',
                 'mime' => 'image/png',
             ])
             ->with([
-                'ticket' => $ticket
+                'ticket' => $ticket,
+                'barcodeImagePath' => $tempImagePath, // Pass the path to the view
             ]);
     }
 }
+
 
