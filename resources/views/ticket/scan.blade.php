@@ -57,7 +57,7 @@ function scanning(barcode) {
                             // After clicking 'OK', refocus on the barcode input field for automatic scanning
                             document.getElementById('barcodeInput').focus();
                         });
-                    }elseif(response.data.status = 'scanned')
+                    }else if(response.data.status = 'scanned')
                     {
                         Swal.fire({
                             title: 'Scanned',
