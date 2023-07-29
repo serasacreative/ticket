@@ -13,7 +13,7 @@
                     <li class="list-group-item">Kategori : VIP</li>
                     <li class="list-group-item">Jumlah Tiket : 3</li>
                     <li class="list-group-item">
-                        <p class="bg-info">Dapatkan tiket anda dengan klik</p> 
+                        <p class="text-info">Dapatkan tiket anda dengan klik</p> 
                         <a href="{{route('ticket.vip')}}" class="btn btn-primary">Tiket Saya</a>
                     </li>
                 </ul>
