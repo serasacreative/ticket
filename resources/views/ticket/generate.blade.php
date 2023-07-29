@@ -44,7 +44,9 @@
 
 @section('content')
 <div class="ticket-container">
-    <h1 style="color:{{($ticket->category == 'vip')?'#007aff': 'rgba(13, 202, 240, 1)'}}">
+    <h1 style="color:{{($ticket->category == 'vip')?'#007aff': 'rgba(13, 202, 240, 1)'}}" class="text-center">
+        {{$ticket->category}}
+    </h1>
 
     <!-- Replace "path/to/your/image.jpg" with the actual path to your image -->
     <img class="ticket-image" src="{{ asset('hero-image.jpeg') }}" alt="Ticket Image">
