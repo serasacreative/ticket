@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6 text-end">
                                 <p class="mb-0"><strong>Order Tanggal : </strong> {{$currentDate}}</p>
-                                <p class="mb-0"><strong>Order Status: </strong> <span class="badge bg-warning">{{$ticket->status}}</span></p>
+                                <p class="mb-0"><strong>Order Status: </strong> <span class="badge bg-success">{{$ticket->status}}</span></p>
                                 <p><strong>Order ID: </strong> {{$ticket->id}}</p>
                             </div>
                         </div>
