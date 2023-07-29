@@ -6,10 +6,10 @@
     <title>:: Ticket</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Lucid HR & Project Admin Dashboard Template with Bootstrap 5x">
-    <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+    <meta name="description" content="Ticket MahaFest">
+    <meta name="author" content="Muhammad Yunus">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{asset('Logo-Mahafest.png')}}.png" type="image/png">
+    <link rel="icon" href="{{asset('Logo-Mahafest.png')}}" type="image/png">
 
     <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}" />
