@@ -54,7 +54,7 @@
 
     <p class="text-center h4">Total Tiket: <span class="h2 text-primary">{{$ticket->qty}}</span></p>
 
-    <h1 class="text-center"style="color:{{($ticket->category == 'vip')?'#007aff': 'rgba(13, 202, 240, 1)'}}; font-size:20px">
+    <h1 class="text-center"style="color:{{($ticket->category == 'vip')?'#007aff': 'rgba(13, 202, 240, 1)'}}; font-size:50px">
         {{$ticket->category}}
     </h1>
     <h4 class="text-danger text-center">TUNJUKKAN BARCODE SAAT PENUKARAN TIKET!</h4>
