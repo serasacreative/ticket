@@ -56,7 +56,7 @@
             <svg id="barcode"></svg>
         </div>
 
-        <p>Total Order: {{$ticket->qty}}</p>
+        <p>Total Order: <span class="h3 text-primary">{{$ticket->qty}}<span></p>
     </div>
 </body>
 
