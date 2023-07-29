@@ -16,8 +16,6 @@
             </div>
         </div>
 
-        {{$tickets}}
-
         <div class="row clearfix">
             <div class="col-12">
                 <div class="card">
