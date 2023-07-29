@@ -10,7 +10,8 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\File;
 use Milon\Barcode\DNS1D;
-use Exception;
+use Illuminate\Support\Facades\Log;
+
 
 class MyCustomEmail extends Mailable implements ShouldQueue
 {
@@ -44,6 +45,9 @@ class MyCustomEmail extends Mailable implements ShouldQueue
         File::makeDirectory(public_path('temp'), 0777, true);
 
         $barcodeImage = $barcode->getBarcodePNG($ticket->bar_code, 'C128');
+
+        // Log the barcode image data for debugging
+        Log::info('Barcode Image Data: ' . base64_encode($barcodeImage));
 
         // Save the barcode image temporarily in the public directory
         $tempImagePath = public_path('temp/barcode_'.$ticket->id.'.png');
