@@ -46,16 +46,40 @@ function scanning(barcode) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(response) {
-                console.log(response)
+                if(response.valid)
+                {
+                    if(response.data.status == "paid"){
+                        Swal.fire({
+                            title: 'Success',
+                            text: 'Jumlah Tiket : '+response.data.qty,
+                            icon: 'success',
+                        }).then(() => {
+                            // After clicking 'OK', refocus on the barcode input field for automatic scanning
+                            document.getElementById('barcodeInput').focus();
+                        });
+                    }elseif(response.data.status = 'scanned')
+                    {
+                        Swal.fire({
+                            title: 'Scanned',
+                            text: 'Barcode has been scanned',
+                            icon: 'warning',
+                        }).then(() => {
+                            // After clicking 'OK', refocus on the barcode input field for automatic scanning
+                            document.getElementById('barcodeInput').focus();
+                        });
+                    }
+                }else{
+                    Swal.fire({
+                            title: 'Error',
+                            text: 'Barcode Not Valid !',
+                            icon: 'error',
+                        }).then(() => {
+                            // After clicking 'OK', refocus on the barcode input field for automatic scanning
+                            document.getElementById('barcodeInput').focus();
+                        });
+                }
+                
                 // Show SweetAlert with the response message
-                Swal.fire({
-                    icon: 'Success',
-                    text: response.message,
-                    icon: 'success',
-                }).then(() => {
-                    // After clicking 'OK', refocus on the barcode input field for automatic scanning
-                    document.getElementById('barcodeInput').focus();
-                });
             },
             error: function(error) {
                 // Show SweetAlert with error message
