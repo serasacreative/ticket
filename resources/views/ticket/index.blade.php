@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <div class="row w-100 d-flex justify-content-evenly">
                             <div class="col-lg-4 col-md-5">
-                                <div class="card py-4 text-center border border-5" style="border-color: #007aff;">
+                                <div class="card py-4 text-center" style="border-color: #007aff; border-width: 5px;">
                                     <div class="card-body">
                                         <img class="img-fluid img-thumbnail w-50 mx-auto" src="{{asset('Logo-Mahafest.png')}}" alt="">
                                         <h2 class="pricing-header" style="color:#007aff">
