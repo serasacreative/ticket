@@ -25,47 +25,26 @@
 @endsection
 @section('js')
 <script>
-    // Function to handle the AJAX request
-    function scanning(barcode) {
-        // Assuming the scanner appends a newline character at the end of the scan
-        if (barcode.endsWith('\n')) {
-            // Remove the newline character
-            const trimmedBarcode = barcode.trim();
-            console.log(trimmedBarcode)
+    let timeoutId; // Variable to store the timeout ID
 
-            // // Make an AJAX request to the Laravel route using jQuery
-            // $.ajax({
-            //     url: '/scan-barcode',
-            //     method: 'POST',
-            //     data: { barcode: trimmedBarcode },
-            //     headers: {
-            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            //     },
-            //     success: function(response) {
-            //         // Show SweetAlert with the response message
-            //         Swal.fire({
-            //             title: 'Success',
-            //             text: response.message,
-            //             icon: 'success',
-            //         }).then(() => {
-            //             // After clicking 'OK', refocus on the barcode input field for automatic scanning
-            //             document.getElementById('barcodeInput').focus();
-            //         });
-            //     },
-            //     error: function(error) {
-            //         // Show SweetAlert with error message
-            //         Swal.fire({
-            //             title: 'Error',
-            //             text: 'Error processing barcode data',
-            //             icon: 'error',
-            //         });
-            //     }
-            // });
+// Function to handle the AJAX request
+function scanning(barcode) {
+    // Clear the previous timeout if it exists
+    clearTimeout(timeoutId);
 
-            // Clear the input field after processing
-            document.getElementById('barcodeInput').value = '';
-        }
-    }
+    // Set a new timeout to execute the scan after 500ms (adjust as needed)
+    timeoutId = setTimeout(() => {
+        // Get the input value after the timeout (complete barcode)
+        const trimmedBarcode = barcode.trim();
+        console.log(trimmedBarcode);
+
+        // Make an AJAX request to the Laravel route using jQuery
+        // ... (rest of the AJAX request code)
+
+        // Clear the input field after processing
+        document.getElementById('barcodeInput').value = '';
+    }, 500); // Adjust the timeout duration as needed (e.g., 500ms, 1000ms, etc.)
+}
 </script>
 
 @endsection
