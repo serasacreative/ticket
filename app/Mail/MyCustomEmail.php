@@ -2,11 +2,12 @@
 
 namespace App\Mail;
 
+use App\Models\Ticket;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MyCustomEmail extends Mailable implements ShouldQueue
 {
@@ -29,10 +30,11 @@ class MyCustomEmail extends Mailable implements ShouldQueue
     public function build()
     {
         $order_id = Crypt::encrypt($this->order_id);
+        $ticket = Ticket::find($order_id);
         return $this->view('emails.my_custom_email')
             ->subject('Ticket Notification')
             ->with([
-                'url' => "https://ticket.serasacreative.com/generate/$order_id",
+                'ticket' => $ticket
             ]);
     }
 }

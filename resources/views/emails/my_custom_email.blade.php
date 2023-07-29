@@ -8,9 +8,25 @@
     <img src="https://ticket.serasacreative.com/banner_mail.jpg" alt="Banner Image" style="max-width: 100%;">
         
     </div>
-    <p>Klick this <a href="{{$url}}">link</a> to generate barcode</p><br />
-    <p>Thank you for using our service !</p>
+    
+    total order = {{$ticket->qty}} 
+    <svg id="barcode"></svg>
 
 
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/plugin/barcodegen/JsBarcode.all.min.js') }}"></script>
+<script>
+    $(function() {
+        // $("#barcode").JsBarcode("{{$ticket->bar_code}}", {
+        $("#barcode").JsBarcode("{{$ticket->bar_code}}", {
+            width: 1.5,
+            height: 65,
+            fontSize: 26,
+            format: "code128",
+            displayValue: true
+        });
+    })
+</script>
 </html>
