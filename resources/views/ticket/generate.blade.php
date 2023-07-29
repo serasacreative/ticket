@@ -52,7 +52,7 @@
         <svg id="barcode"></svg>
     </div>
 
-    <p class="text-center h4">Total Tiket: <span class="h2 text-primary">{{$ticket->qty}}</span></p>
+    <p class="text-center h4">Total Tiket: <span class="text-primary" style="font-size: 50px;">{{$ticket->qty}}</span></p>
 
     <h1 class="text-center"style="color:{{($ticket->category == 'vip')?'#007aff': 'rgba(13, 202, 240, 1)'}}; font-size:50px">
         {{ strtoupper($ticket->category) }}
