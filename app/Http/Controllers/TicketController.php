@@ -238,8 +238,8 @@ class TicketController extends Controller
         return view('ticket.invoice', compact('ticket', 'currentDate'));
 
     }
-    public function checkout($id){
-        $ticket_id = Crypt::decrypt($id);
+    public function checkout(Request $request){
+        $ticket_id = $request->input('order_id');;
         $ticket = Ticket::find($ticket_id);
 
         //SAMPLE REQUEST START HERE
