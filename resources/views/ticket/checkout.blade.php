@@ -97,7 +97,7 @@
 
 @section('js')
 <script type="text/javascript">
-const ticket_id = '{{Crypt::decrypt($ticket->id)}}'
+const ticket_id = '{{Crypt::encrypt($ticket->id)}}'
     // For example trigger on button clicked, or any time you need
     var payButton = document.getElementById('pay-button');
     payButton.addEventListener('click', function () {
