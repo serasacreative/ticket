@@ -39,7 +39,7 @@ function scanning(barcode) {
         console.log(trimmedBarcode);
         // Make an AJAX request to the Laravel route using jQuery
         $.ajax({
-            url: "{{route('ticket.scan')}}",
+            url: "{{route('ticket.verify')}}",
             method: 'POST',
             data: { barcode: trimmedBarcode },
             headers: {
