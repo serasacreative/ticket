@@ -38,7 +38,7 @@
                             <div class="col-lg-4 col-md-5">
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
-                                        <img src="{{asset('Logo-Mahafest.png')}}" alt="" class="pricing-img">
+                                        <img src="{{asset('Logo-Mahafest.png')}}" alt="" class="pricing-img img-fluid">
                                         <h2 class="pricing-header">VIP</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
@@ -59,7 +59,7 @@
                             <div class="col-lg-4 col-md-5">
                                 <div class="card py-4 text-center">
                                     <div class="card-body">
-                                        <img src="{{asset('Logo-Mahafest.png')}}" alt="" class="pricing-img">
+                                        <img src="{{asset('Logo-Mahafest.png')}}" alt="" class="pricing-img img-fluid">
                                         <h2 class="pricing-header">Festival</h2>
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
