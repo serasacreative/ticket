@@ -22,7 +22,7 @@
         <div style="padding: 1.25rem;">
             <ul style="list-style: none; padding: 0;">
                 <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Nama : {{$ticket->name}} </li>
-                <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Kategori : {{$ticket->categori}}</li>
+                <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Kategori : {{$ticket->category}}</li>
                 <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Jumlah Tiket : {{$ticket->qty}}</li>
                 <li style="padding: 0.5rem 0;">
                     <p style="color: #17a2b8; margin: 0;">Dapatkan tiket anda dengan klik</p> 
