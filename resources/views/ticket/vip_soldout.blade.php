@@ -32,7 +32,8 @@
                                         <ul class="pricing-features list-unstyled">
                                             <li class="my-2">Free Merchandise</li>
                                             <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
-                                            <li class="my-2"><i class="fa fa-clock-o"> 15:00 - 24:00 WIB</i></li>
+                                            <li class="my-2"><i class="fa fa-clock-o"></i> 15:00 - 24:00 WIB</li>
+                                            <li class="my-2"><i class="fas fa-map-marker-alt"></i> GOR UNTUNG SUROPATI KOTA PASURUAN</li>
                                         </ul>
 
                                         <img src="{{asset('sold-out.png')}}" class="img-fluid" />
