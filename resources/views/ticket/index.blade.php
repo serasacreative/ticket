@@ -48,7 +48,7 @@
                                             <li class="my-2">Free Merchandise</li>
                                             <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
                                             <li class="my-2"><i class="fa fa-clock-o"></i> 15:00 - 24:00 WIB</li>
-                                            <li class="my-2"><i class="fas fa-map-marker-alt"></i> GOR UNTUNG SUROPATI KOTA PASURUAN</li>
+                                            <li class="my-2"><i class="fa fa-map-marker"></i> GOR UNTUNG SUROPATI KOTA PASURUAN</li>
                                         </ul>
                                         @if($is_presale)
                                         <p class="fs-1"><del>Rp 150.000</del></p>
@@ -77,7 +77,7 @@
                                             <li class="my-2">Free Merchandise</li>
                                             <li class="my-2"><i class="fa fa-calendar"></i> 27 Agustus 2023</li>
                                             <li class="my-2"><i class="fa fa-clock-o"></i> 15:00 - 24:00 WIB</li>
-                                            <li class="my-2"><i class="fas fa-map-marker-alt"></i> GOR UNTUNG SUROPATI KOTA PASURUAN</li>
+                                            <li class="my-2"><i class="fa fa-map-marker"></i> GOR UNTUNG SUROPATI KOTA PASURUAN</li>
                                         </ul>
 
                                         @if($is_presale)
