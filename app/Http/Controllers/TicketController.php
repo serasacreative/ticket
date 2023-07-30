@@ -328,7 +328,7 @@ class TicketController extends Controller
         $ticket_scanned = Ticket::where('status', 'scanned')->sum('qty');
         $ticket_scanned_total = Ticket::where('status', 'scanned')->sum('total_price');
 
-        return view('ticket.admin', compact('ticket_pending', 'ticket_paid', 'ticket_scanned', 'ticket_paid_total', 'ticket_scanned_total'));
+        return view('ticket.admin', compact('ticket_pending', 'ticket_paid_vip', 'ticket_paid_festival', 'ticket_scanned', 'ticket_vip_total_price', 'ticaket_festival_total_price', 'ticket_scanned_total'));
     }
 
     public function email(){
