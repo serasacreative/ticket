@@ -68,7 +68,7 @@
                                                         <label>Email :</label>
                                                         <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email" required name="email" value="{{ old('email') }}">
                                                         <div id="emailHelp" class="form-text">
-                                                            Tiket akan dikirim ke email ada !
+                                                            Tiket akan dikirim ke email anda !
                                                           </div>
                                                         @error('email')
                                                             <div class="alert alert-danger">{{ $message }}</div>
