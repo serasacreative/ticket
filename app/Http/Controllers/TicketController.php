@@ -39,6 +39,7 @@ class TicketController extends Controller
         ->sum('qty');
         $max_tickets = env('MAX_FESTIVAL_TICKET');
         if($tickets >= $max_tickets){
+            return $tickets;
             return view('ticket.festival_soldout');
         }
         $price = env('FESTIVAL_TICKET_PRICE');
