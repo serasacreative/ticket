@@ -25,6 +25,7 @@
                 <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Kategori : {{$ticket->category}}</li>
                 <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Jumlah Tiket : {{$ticket->qty}}</li>
                 <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Lokasi : GOR UNTUNG SUROPATI KOTA PASURUAN</li>
+                <li style="border-bottom: 1px solid #ced4da; padding: 0.5rem 0;">Note : Tiket ini akan ditukarkan ke tiket gelang pada tgl 26 dan 27 Agustus di Gor Untung Suropati Kota Pasuruan.</li>
                 <li style="padding: 0.5rem 0;">
                     <p style="color: #17a2b8; margin: 0;">Dapatkan tiket anda dengan klik</p> 
                     <a href="https://ticket.serasacreative.com/ticket/generate/{{$url}}" style="background-color: #007bff; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.25rem; display: inline-block; margin-top: 5px;">Tiket Saya</a>
