@@ -52,7 +52,8 @@ function scanning(barcode) {
                     if(response.status == "paid"){
                         Swal.fire({
                             title: 'Success',
-                            text: 'Jumlah Tiket : '+response.qty,
+                            html: `
+    <p class="text-center h4">Total Tiket: <span class="text-primary" style="font-size: 50px;">${response.qty}</span></p>`,
                             icon: 'success',
                         }).then(() => {
                             // After clicking 'OK', refocus on the barcode input field for automatic scanning
