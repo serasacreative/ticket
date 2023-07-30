@@ -49,16 +49,16 @@ function scanning(barcode) {
                 console.log(response)
                 if(response.valid)
                 {
-                    if(response.data.status == "paid"){
+                    if(response.status == "paid"){
                         Swal.fire({
                             title: 'Success',
-                            text: 'Jumlah Tiket : '+response.data.qty,
+                            text: 'Jumlah Tiket : '+response.qty,
                             icon: 'success',
                         }).then(() => {
                             // After clicking 'OK', refocus on the barcode input field for automatic scanning
                             document.getElementById('barcodeInput').focus();
                         });
-                    }else if(response.data.status = 'scanned')
+                    }else if(response.status = 'scanned')
                     {
                         Swal.fire({
                             title: 'Scanned',
