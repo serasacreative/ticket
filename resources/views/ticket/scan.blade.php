@@ -53,7 +53,7 @@ function scanning(barcode) {
                         Swal.fire({
                             title: 'Success',
                             html: `
-    <p class="text-center h4">Total Tiket: <span class="text-primary" style="font-size: 50px;">${response.qty}</span></p>`,
+    <p class="text-center h4">Total Tiket: <span class="text-primary" style="font-size: 50px;">${response.qty}</span></p><br /><h1 class="text-center" style="text-align: center;">${response.category}</h1>`,
                             icon: 'success',
                         }).then(() => {
                             // After clicking 'OK', refocus on the barcode input field for automatic scanning
