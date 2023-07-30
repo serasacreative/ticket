@@ -6,7 +6,6 @@
         body {
             background-image: url("{{asset('bg-white.jpeg')}}");
             background-size: cover;
-            /* Additional CSS styles for the body element can be added here */
         }
     </style>
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
@@ -17,7 +16,7 @@
     <div style="border: 1px solid #ced4da; border-radius: 0.25rem; max-width: 400px; margin: 0 auto; background-color: #fff;">
         <div style="background-color: #f8f9fa; padding: 0.75rem 1.25rem;">
             <h6 style="margin: 0; font-size: 1.125rem; font-weight: bold;">Informasi Tiket</h6>
-            <img style="max-width: 50%; display: block; margin: 10px auto;" src="{{asset('hero-image.jpeg')}}" alt="">
+            <img style="max-width: 100%;" src="{{asset('hero-image.jpeg')}}" alt="Hero Image">
         </div>
         <div style="padding: 1.25rem;">
             <ul style="list-style: none; padding: 0;">
