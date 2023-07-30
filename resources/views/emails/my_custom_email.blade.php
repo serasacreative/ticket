@@ -2,13 +2,19 @@
 <html>
 <head>
     <title>TICKET MAHAFEST</title>
-
+    <style>
+        body {
+            background-image: url("{{asset('bg-white.jpeg')}}");
+            background-size: cover;
+            /* Additional CSS styles for the body element can be added here */
+        }
+    </style>
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 <body>
 
-<div style="text-align: center; background-color: #fff">
-    <div style="border: 1px solid #ced4da; border-radius: 0.25rem; max-width: 400px; margin: 0 auto;">
+<div style="text-align: center;">
+    <div style="border: 1px solid #ced4da; border-radius: 0.25rem; max-width: 400px; margin: 0 auto; background-color: #fff;">
         <div style="background-color: #f8f9fa; padding: 0.75rem 1.25rem;">
             <h6 style="margin: 0; font-size: 1.125rem; font-weight: bold;">Informasi Tiket</h6>
             <img style="max-width: 50%; display: block; margin: 10px auto;" src="{{asset('Logo-Mahafest.png')}}" alt="">
@@ -27,5 +33,4 @@
     </div>
 </div>
 </body>
-
 </html>

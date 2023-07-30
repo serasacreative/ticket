@@ -14,7 +14,7 @@
                         <h1>Scanning</h1>
                         <div class="row w-100 d-flex justify-content-evenly">
                             <div class="card py-4 text-center"> 
-                                <input type="text" id="barcodeInput" autofocus oninput="scanning(this.value)">
+                                <input type="text" id="barcodeInput" autofocus oninput="scanning(this.value)" style="height:200px;">
                             </div>
                         </div>
                     </div>
