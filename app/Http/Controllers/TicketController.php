@@ -79,7 +79,7 @@ class TicketController extends Controller
         $ticket->name = $request->name;
         $ticket->email = $request->email;
         $ticket->phone = $request->phone;
-        $ticket->category = 'vip';
+        $ticket->category = 'festival';
         $ticket->status = 'pending';
         $ticket->qty = $request->qty;
         $ticket->price = $price;
