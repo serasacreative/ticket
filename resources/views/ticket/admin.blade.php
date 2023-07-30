@@ -31,8 +31,8 @@
                                         <tr>
                                             <td>1</td>
                                             <td>{{$ticket_pending}}</td>
-                                            <td>{{$ticket_vip}}</td>
-                                            <td>{{$ticket_festival}}</td>
+                                            <td>{{$ticket_paid_vip}}</td>
+                                            <td>{{$ticket__paid_festival}}</td>
                                             <td>{{$ticket_vip_total_price}}</td>
                                             <td>{{$ticket_festival_total_price}}</td>
                                             <td>{{$ticket_scanned}}</td>
