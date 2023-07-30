@@ -321,8 +321,10 @@ class TicketController extends Controller
 
     public function admin(){
         $ticket_pending = Ticket::where('status', 'pending')->sum('qty');
-        $ticket_paid = Ticket::where('status', 'paid')->sum('qty');
-        $ticket_paid_total = Ticket::where('status', 'paid')->sum('total_price');
+        $ticket_paid_vip = Ticket::where('status', 'paid')->where('category', 'vip')->sum('qty');
+        $ticket_paid_festival = Ticket::where('status', 'paid')->where('category', 'festival')->sum('qty');
+        $ticket_vip_total_price = Ticket::where('status', 'paid')->where('category', 'vip')->sum('total_price');
+        $ticket_festival_total_price = Ticket::where('status', 'paid')->where('category', 'festival')->sum('total_price');
         $ticket_scanned = Ticket::where('status', 'scanned')->sum('qty');
         $ticket_scanned_total = Ticket::where('status', 'scanned')->sum('total_price');
 
