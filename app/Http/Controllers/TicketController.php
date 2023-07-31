@@ -326,10 +326,13 @@ class TicketController extends Controller
         $ticket_paid_festival = Ticket::where('status', 'paid')->where('category', 'festival')->sum('qty');
         $ticket_vip_total_price = Ticket::where('status', 'paid')->where('category', 'vip')->sum('total_price');
         $ticket_festival_total_price = Ticket::where('status', 'paid')->where('category', 'festival')->sum('total_price');
-        $ticket_scanned = Ticket::where('status', 'scanned')->sum('qty');
-        $ticket_scanned_total = Ticket::where('status', 'scanned')->sum('total_price');
 
-        return view('ticket.admin', compact('ticket_pending', 'ticket_paid_vip', 'ticket_paid_festival', 'ticket_scanned', 'ticket_vip_total_price', 'ticket_festival_total_price', 'ticket_scanned_total'));
+        $ticket_festival_scanned = Ticket::where('status', 'scanned')->where('category', 'festival')->sum('qty');
+        $ticket_festival_scanned_total_price = Ticket::where('status', 'scanned')->where('category', 'festival')->sum('total_price');
+        $ticket_vip_scanned = Ticket::where('status', 'scanned')->where('category', 'vip')->sum('qty');
+        $ticket_vip_scanned_total_price = Ticket::where('status', 'scanned')->where('category', 'vip')->sum('total_price');
+
+        return view('ticket.admin', compact('ticket_pending', 'ticket_paid_vip', 'ticket_paid_festival', 'ticket_vip_total_price', 'ticket_festival_total_price', 'ticket_festival_scanned', 'ticket_vip_scanned', 'ticket_vip_scanned_total_price', 'ticket_festival_scanned_total_price'));
     }
 
     public function email(){

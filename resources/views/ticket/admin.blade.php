@@ -23,8 +23,10 @@
                                             <th>ticket_festival</th>
                                             <th>ticket_vip_total_price</th>
                                             <th>ticket_festival_total_price</th>
-                                            <th>ticket_scanned</th>
-                                            <th>ticket_scanned_total_price</th>
+                                            <th>ticket_vip_scanned</th>
+                                            <th>ticket_festival_scanned</th>
+                                            <th>ticket_vip_scanned_total_price</th>
+                                            <th>ticket_festival_scanned_total_price</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -35,8 +37,10 @@
                                             <td>{{$ticket_paid_festival}}</td>
                                             <td>{{$ticket_vip_total_price}}</td>
                                             <td>{{$ticket_festival_total_price}}</td>
-                                            <td>{{$ticket_scanned}}</td>
-                                            <td>{{$ticket_scanned_total}}</td>
+                                            <td>{{$ticket_vip_scanned}}</td>
+                                            <td>{{$ticket_festival_scanned}}</td>
+                                            <td>{{$ticket_vip_scanned_total_price}}</td>
+                                            <td>{{$ticket_festival_scanned_total_price}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
