@@ -238,6 +238,13 @@ class TicketController extends Controller
         return view('ticket.invoice', compact('ticket', 'currentDate'));
 
     }
+    public function check()
+    {
+        return view('ticket.check');
+    }
+    public function checkData(Request $request){
+        return $request->all();
+    }
     public function checkout(Request $request){
         $ticket_id = $request->input('order_id');;
         $ticket_old = Ticket::where('id',$ticket_id)->where('status', 'pending')->first();
