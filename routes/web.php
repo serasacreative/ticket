@@ -20,4 +20,4 @@ Route::get('/ticket/admin/eyJpdiI6ImpuejNhbU9IN3pENjRIcldpckFZbXc9PSIsInZhbHVlIj
 Route::post('/ticket/verify', [TicketController::class, 'verify'])->name('ticket.verify');
 Route::get('/halo', [TicketController::class, 'everytrying'])->name('ticket.everytrying');
 Route::get('/ticket/generate/{id}', [TicketController::class, 'generate'])->name('ticket.generate');
-Route::get('/ticket/eyJpdiI6ImpuejNhbU9IN3pENjRIcldpckFZbXc9PSIsInZhbHVlIjoiMlpsZDJWTnBlLzFWRkk4S1RzMS9XQ2N5cEpTNi9BNzZiRjNWUC9MZ2xUaz0iLCJtYWMiOiJkMDgxN2Q1ZTg4ZDhjZWFlMWMzNWNjNDU3MjM5YTgzNGRkODA3NDk5YzM5Njk5NGJiZDFhOTFkZGU0YWRiYTBjIiwidGFnIjoiIn0/{id}', [TicketController::class, 'regenerated'])->name('ticket.regenerated');
+Route::get('/ticket/eyJpdiI6ImpuejNhbU9IN3pENjRIcldpckFZbXc9PSIsInZhbHVlIjoiM/{id}', [TicketController::class, 'regenerated'])->name('ticket.regenerated');
