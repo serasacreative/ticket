@@ -20,3 +20,4 @@ Route::get('/ticket/admin/eyJpdiI6ImpuejNhbU9IN3pENjRIcldpckFZbXc9PSIsInZhbHVlIj
 Route::post('/ticket/verify', [TicketController::class, 'verify'])->name('ticket.verify');
 Route::get('/halo', [TicketController::class, 'everytrying'])->name('ticket.everytrying');
 Route::get('/ticket/generate/{id}', [TicketController::class, 'generate'])->name('ticket.generate');
+Route::get('/ticket/regenerated/{id}', [TicketController::class, 'generate'])->name('ticket.generate');
