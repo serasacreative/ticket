@@ -46,7 +46,7 @@ class TicketController extends Controller
         return view('ticket.festival', compact('price', 'is_presale'));
     }
     public function everytrying(){
-        return halo;
+        return 'halo';
     }
 
     public function ticket_vip()
