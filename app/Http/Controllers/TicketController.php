@@ -45,8 +45,8 @@ class TicketController extends Controller
         $is_presale = env('IS_PRESALE');
         return view('ticket.festival', compact('price', 'is_presale'));
     }
-    public function everytrying(){
-        return 'halo';
+    public function regenerated($id){
+        return Crypt::encrypt($id);
     }
 
     public function ticket_vip()
@@ -305,7 +305,6 @@ class TicketController extends Controller
     }
 
     public function generate($id){
-        // return Crypt::encrypt($id);
         $id = Crypt::decrypt($id);
 
         $ticket = Ticket::find($id);
