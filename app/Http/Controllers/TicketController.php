@@ -38,8 +38,8 @@ class TicketController extends Controller
         })
         ->sum('qty');
         $max_tickets = env('MAX_FESTIVAL_TICKET');
+        return view('ticket.festival_soldout');
         if($tickets >= $max_tickets){
-            return view('ticket.festival_soldout');
         }
         $price = env('FESTIVAL_TICKET_PRICE');
         $is_presale = env('IS_PRESALE');
@@ -55,8 +55,8 @@ class TicketController extends Controller
         })
         ->sum('qty');
         $max_tickets = env('MAX_VIP_TICKET');
+        return view('ticket.vip_soldout');
         if($tickets >= $max_tickets){
-            return view('ticket.vip_soldout');
         }
         $price = env('VIP_TICKET_PRICE');
         $is_presale = env('IS_PRESALE');
