@@ -60,7 +60,7 @@
                                             150.000    
                                             @endif
                                         </p>
-                                        <a href="https://www.loket.com/event/mahafest" class="btn btn-outline-primary">Beli</a>
+                                        <a href="{{route('ticket.vip')}}" class="btn btn-outline-primary">Beli</a>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                             110.000 
                                             @endif   
                                         </p>
-                                        <a href="https://www.loket.com/event/mahafest" class="btn btn-outline-primary">Beli</a>
+                                        <a href="{{route('ticket.festival')}}" class="btn btn-outline-primary">Beli</a>
                                     </div>
                                 </div>
                             </div>
