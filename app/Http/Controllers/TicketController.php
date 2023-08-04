@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Ticket;
 use App\Mail\MyCustomEmail;
-
+use App\Models\Email;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -216,14 +216,12 @@ class TicketController extends Controller
                     $ticket->bar_code = str_pad($ticket->id, 5, "0", STR_PAD_LEFT). Carbon::parse($ticket->created_at)->format("Ymd"). strtoupper(Str::random(4));
                     $ticket->save();
     
-                    try {
-                        // Send email with barcode
-                        $recipientEmail = $ticket->email;
-                        Mail::to($recipientEmail)->send(new MyCustomEmail($request->order_id));
-                    } catch (Exception $e) {
-                        // Log the error message
-                        Log::error('Error sending email: ' . $e->getMessage());
-                    }
+                    $email = new Email();
+                    $email->order_id = $ticket->id;
+                    $email->email = $ticket->email;
+                    $email->status = 'pending';
+                    $email->save();
+                    
                 } else {
                     // Log ticket not found
                     Log::error('Ticket with ID ' . $request->order_id . ' not found.');

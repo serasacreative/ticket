@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Register the SendScheduledEmails command to run every 2 minutes
+        $schedule->command('email:send-scheduled')->everyTwoMinutes();
     }
 
     /**
