@@ -170,7 +170,7 @@ class TicketController extends Controller
         require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
 
         //SAMPLE REQUEST START HERE
-        // try {
+        try {
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -194,10 +194,10 @@ class TicketController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-    // } catch (\Throwable $e) {
-    //     // Handle any exceptions that occur during the API call
-    //     return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
-    // }
+    } catch (\Throwable $e) {
+        // Handle any exceptions that occur during the API call
+        return redirect()->back()->with('error', 'Failed ! Please try again later.')->withInput();
+    }
     $currentDate = Carbon::now()->format('M d, Y');
 
         return view('ticket.checkout', compact('snapToken', 'ticket', 'currentDate'));
@@ -243,7 +243,7 @@ class TicketController extends Controller
     {
         return view('ticket.check');
     }
-    public function checkData(Request $request){
+    public function checkdata(Request $request){
         return $request->all();
     }
     public function checkout(Request $request){

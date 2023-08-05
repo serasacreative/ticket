@@ -51,7 +51,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '{{ route("checkData") }}',
+                url: '{{ route("ticket.checkdata") }}',
                 data: { data: inputData },
                 success: function (response) {
                     console.log(response)
