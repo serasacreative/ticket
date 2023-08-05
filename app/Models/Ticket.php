@@ -9,7 +9,7 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $guarded = ['id']; 
-    public function email()
+    public function email_data()
     {
         return $this->hasOne(Email::class, 'order_id', 'id');
     }
