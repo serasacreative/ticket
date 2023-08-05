@@ -80,27 +80,36 @@
                 url: '{{ route("ticket.checkdata") }}',
                 data: { data: inputData },
                 success: function (response) {
-                    if (Array.isArray(response)) {
+                    if (Array.isArray(response.data)) {
                         var tableBody = '';
-                        response.forEach(function (data) {
-                            console.log(data)
+                        response.data.forEach(function (item) {
+                            var email = item.email;
+                            var emailStatus = item.status;
+                            var order = item.order;
+                            var orderId = order.id;
+                            var orderStatus = order.status;
+                            var orderCategory = order.category;
+                            var orderQty = order.qty;
+                            var orderTotalPrice = order.total_price;
+                            var createdAt = order.created_at;
+                            var updatedAt = order.updated_at;
+
                             tableBody += '<tr>';
-                            tableBody += '<td>' + data.order.id + '</td>';
-                            tableBody += '<td>' + data.order.status + '</td>';
-                            tableBody += '<td>' + data.email + '</td>';
-                            tableBody += '<td>' + data.status + '</td>';
-                            tableBody += '<td>' + data.order.category + '</td>';
-                            tableBody += '<td>' + data.order.qty + '</td>';
-                            tableBody += '<td>' + data.order.total_price + '</td>';
+                            tableBody += '<td>' + orderId + '</td>';
+                            tableBody += '<td>' + orderStatus + '</td>';
+                            tableBody += '<td>' + email + '</td>';
+                            tableBody += '<td>' + emailStatus + '</td>';
+                            tableBody += '<td>' + orderCategory + '</td>';
+                            tableBody += '<td>' + orderQty + '</td>';
+                            tableBody += '<td>' + orderTotalPrice + '</td>';
+                            tableBody += '<td>' + createdAt + '</td>';
+                            tableBody += '<td>' + updatedAt + '</td>';
                             tableBody += '</tr>';
                         });
 
                         // Assuming your table has an ID "orders-table" and a tbody with ID "table-body"
                         $('#orders-table').html(tableBody);
-                    } else {
-                        // Handle the case when the response is not an array or doesn't contain the expected data.
-                        $('#result').html('<p>Error in response data format.</p>');
-                    }
+                    } 
                 },
                 error: function (xhr, status, error) {
                     console.error(xhr.responseText);
