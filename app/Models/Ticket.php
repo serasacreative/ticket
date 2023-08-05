@@ -9,5 +9,9 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $guarded = ['id']; 
-  
+    public function email()
+    {
+        return $this->hasOne(Email::class, 'order_id', 'id');
+    }
+
 }

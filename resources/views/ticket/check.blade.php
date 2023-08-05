@@ -83,16 +83,14 @@
                     if (Array.isArray(response.data)) {
                         var tableBody = '';
                         response.data.forEach(function (item) {
-                            var email = item.email;
-                            var emailStatus = item.status;
-                            var order = item.order;
-                            var orderId = order.id;
-                            var orderStatus = order.status;
-                            var orderCategory = order.category;
-                            var orderQty = order.qty;
-                            var orderTotalPrice = order.total_price;
-                            var createdAt = order.created_at;
-                            var updatedAt = order.updated_at;
+                            var emails = item.email;
+                            var email = emails.email;
+                            var emailStatus = emails.status;
+                            var orderId = item.id;
+                            var orderStatus = item.status;
+                            var orderCategory = item.category;
+                            var orderQty = item.qty;
+                            var orderTotalPrice = item.total_price;
 
                             tableBody += '<tr>';
                             tableBody += '<td>' + orderId + '</td>';

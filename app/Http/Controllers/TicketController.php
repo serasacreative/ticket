@@ -245,7 +245,7 @@ class TicketController extends Controller
     }
     public function checkdata(Request $request){
         $query = $request->data;
-        $email = Email::with('order')->where('email', 'LIKE', '%'.$query.'%')->get();
+        $email = Ticket::with('email')->where('email', 'LIKE', '%'.$query.'%')->orWhere('name', 'LIKE', '%'.$query.'%')->get();
         return response()->json(['data' => $email]);
     }
     public function checkout(Request $request){
