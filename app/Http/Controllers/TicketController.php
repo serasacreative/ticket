@@ -244,7 +244,9 @@ class TicketController extends Controller
         return view('ticket.check');
     }
     public function checkdata(Request $request){
-        return $request->all();
+        $query = $request->data;
+        $email = Email::with('order')->where('email', 'LIKE', '%'.$query.'%')->get();
+        return response()->json(['data' => $email]);
     }
     public function checkout(Request $request){
         $ticket_id = $request->input('order_id');;
