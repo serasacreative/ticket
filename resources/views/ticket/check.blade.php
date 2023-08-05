@@ -86,7 +86,7 @@
                         response.data.forEach(function (item) {
                             var emailStatus = '';
                             if(item.status === 'paid'){
-                                var emailStatus = item.email.status;
+                                var emailStatus = item.email_data.status;
                             }
                             var email = item.email;
                             var orderId = item.id;
