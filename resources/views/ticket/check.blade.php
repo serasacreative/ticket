@@ -102,8 +102,6 @@
                             tableBody += '<td>' + orderCategory + '</td>';
                             tableBody += '<td>' + orderQty + '</td>';
                             tableBody += '<td>' + orderTotalPrice + '</td>';
-                            tableBody += '<td>' + createdAt + '</td>';
-                            tableBody += '<td>' + updatedAt + '</td>';
                             tableBody += '</tr>';
                         });
 
