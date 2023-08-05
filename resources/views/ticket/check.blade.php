@@ -40,6 +40,7 @@
                                     <tr>
                                         <th>order id</th>
                                         <th>order status</th>
+                                        <th>name</th>
                                         <th>email</th>
                                         <th>email status</th>
                                         <th>category</th>
@@ -80,7 +81,6 @@
                 url: '{{ route("ticket.checkdata") }}',
                 data: { data: inputData },
                 success: function (response) {
-                    console.log(response)
                     if (Array.isArray(response.data)) {
                         var tableBody = '';
                         response.data.forEach(function (item) {
@@ -90,6 +90,7 @@
                             }
                             var email = item.email;
                             var orderId = item.id;
+                            var orderName = item.name;
                             var orderStatus = item.status;
                             var orderCategory = item.category;
                             var orderQty = item.qty;
@@ -98,6 +99,7 @@
                             tableBody += '<tr>';
                             tableBody += '<td>' + orderId + '</td>';
                             tableBody += '<td>' + orderStatus + '</td>';
+                            tableBody += '<td>' + orderName + '</td>';
                             tableBody += '<td>' + email + '</td>';
                             tableBody += '<td>' + emailStatus + '</td>';
                             tableBody += '<td>' + orderCategory + '</td>';
