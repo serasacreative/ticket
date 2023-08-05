@@ -80,10 +80,10 @@
                 url: '{{ route("ticket.checkdata") }}',
                 data: { data: inputData },
                 success: function (response) {
-                    console.log(response)
                     if (Array.isArray(response)) {
                         var tableBody = '';
                         response.forEach(function (data) {
+                            console.log(data)
                             tableBody += '<tr>';
                             tableBody += '<td>' + data.order.id + '</td>';
                             tableBody += '<td>' + data.order.status + '</td>';
