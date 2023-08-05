@@ -80,12 +80,15 @@
                 url: '{{ route("ticket.checkdata") }}',
                 data: { data: inputData },
                 success: function (response) {
+                    console.log(response)
                     if (Array.isArray(response.data)) {
                         var tableBody = '';
                         response.data.forEach(function (item) {
-                            var emails = item.email;
-                            var email = emails.email;
-                            var emailStatus = emails.status;
+                            var emailStatus = '';
+                            if(item.status === 'paid'){
+                                var emailStatus = item.email.status;
+                            }
+                            var email = item.email;
                             var orderId = item.id;
                             var orderStatus = item.status;
                             var orderCategory = item.category;
