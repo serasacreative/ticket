@@ -50,8 +50,8 @@ class SendScheduledEmails extends Command
                 Mail::to($email->email)->send(new MyCustomEmail($email->order_id));
 
                 // Update the status of the email to "sent" after successfully sending
-                $email->status = 'sent';
-                $email->save();
+                // $email->status = 'sent';
+                // $email->save();
             } catch (Exception $e) {
                 // Log the error message
                 Log::error('Error sending email: ' . $e->getMessage());
