@@ -57,6 +57,7 @@
     <h1 class="text-center"style="color:{{($ticket->category == 'vip')?'#007aff': 'rgba(13, 202, 240, 1)'}}; font-size:50px">
         {{ strtoupper($ticket->category) }}
     </h1>
+    <h4 class="text-danger text-center">{{$ticket->bar_code}}</h4>
     <h4 class="text-danger text-center">TUNJUKKAN BARCODE SAAT PENUKARAN TIKET!</h4>
 </div>
 
